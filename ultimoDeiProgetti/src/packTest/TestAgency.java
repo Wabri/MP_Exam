@@ -14,8 +14,8 @@ public class TestAgency {
 	public void initialize() {
 		LinkedList<Employee> testListOfEmployees = new LinkedList<Employee>();
 		LinkedList<Product> testListOfProduct = new LinkedList<Product>();
-		LinkedList<Client> testListOfClient = new LinkedList<Client>();
-		testAgency = new Agency("agencyName1", testListOfEmployees, testListOfClient, testListOfProduct);
+		LinkedList<Custom> testListOfCustom = new LinkedList<Custom>();
+		testAgency = new Agency("agencyName1", testListOfEmployees, testListOfCustom, testListOfProduct);
 	}
 
 	@Test
@@ -43,12 +43,12 @@ public class TestAgency {
 	}
 
 	@Test
-	public void testAddRemoveClient() {
-		Client testClient = new Client("clientName1", "clientLastName1");
-		assertTrue(testAgency.add(testClient));
-		assertTrue(testAgency.getListOfClient().contains(testClient));
-		assertTrue(testAgency.remove(testClient));
-		assertFalse(testAgency.getListOfClient().contains(testClient));
+	public void testAddRemoveCustom() {
+		Custom testCustom = new Custom("customName1", "customLastName1", 0);
+		assertTrue(testAgency.add(testCustom));
+		assertTrue(testAgency.getListOfCustom().contains(testCustom));
+		assertTrue(testAgency.remove(testCustom));
+		assertFalse(testAgency.getListOfCustom().contains(testCustom));
 	}
 
 }

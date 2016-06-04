@@ -6,4 +6,8 @@ public abstract class Employee extends Person{
 		super(name,lastName);
 	}
 	
+	protected Card getTypeCard() {
+		return new EmployeeCard(this, 50.);
+	}
+	
 }

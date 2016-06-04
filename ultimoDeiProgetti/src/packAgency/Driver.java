@@ -9,6 +9,5 @@ public class Driver extends Employee {
 	protected String addThing() {
 		return "Driver";
 	}
-
 	
 }

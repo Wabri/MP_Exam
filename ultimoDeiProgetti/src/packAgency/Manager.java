@@ -9,8 +9,6 @@ public class Manager extends Employee {
 	@Override
 	protected String addThing() {
 		return "Manager";
-	}
-	
-	
+	}	
 
 }

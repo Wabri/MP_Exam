@@ -4,12 +4,24 @@ public abstract class Person {
 
 	private String name;
 	private String lastName;
+	private Card card;
 
 	public Person(String name, String lastName) {
 		this.setLastName(lastName);
 		this.setName(name);
+		this.card = this.getTypeCard();
 	}
 	
+	protected abstract Card getTypeCard();
+	
+	private void setCard(Card card) {
+		this.card = card;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
 	private void setName(String name) {
 		this.name = name;
 	}

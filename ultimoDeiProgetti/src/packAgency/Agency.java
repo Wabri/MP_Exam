@@ -7,20 +7,20 @@ public class Agency {
 
 	private String name;
 	private Collection<Employee> listOfEmployees;
-	private Collection<Client> listOfClient;
+	private Collection<Custom> listOfCustom;
 	private Collection<Product> listOfProduct;
 
 	public Agency(String name) {
 		this.setName(name);
 		listOfEmployees = new LinkedList<Employee>();
-		listOfClient = new LinkedList<Client>();
+		listOfCustom = new LinkedList<Custom>();
 		listOfProduct = new LinkedList<Product>();
 	}
 
-	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Client> listOfClient, Collection<Product> lostOfProduct) {
+	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom, Collection<Product> lostOfProduct) {
 		this.setName(name);
 		this.setListOfEmployees(listOfEmployees);
-		this.setListOfClient(listOfClient);
+		this.setListOfCustom(listOfCustom);
 		this.setListOfProduct(lostOfProduct);
 	}
 
@@ -36,8 +36,8 @@ public class Agency {
 		this.listOfEmployees = listOfEmployees;
 	}
 
-	private void setListOfClient(Collection<Client> listOfClient) {
-		this.listOfClient = listOfClient;
+	private void setListOfCustom(Collection<Custom> listOfCustom) {
+		this.listOfCustom = listOfCustom;
 	}
 
 	private void setListOfProduct(Collection<Product> listOfProduct) {
@@ -48,8 +48,8 @@ public class Agency {
 		return listOfEmployees;
 	}
 
-	public Collection<Client> getListOfClient() {
-		return listOfClient;
+	public Collection<Custom> getListOfCustom() {
+		return listOfCustom;
 	}
 
 	public Collection<Product> getListOfProduct() {
@@ -65,9 +65,9 @@ public class Agency {
 		}
 	}
 
-	public boolean add(Client client) {
+	public boolean add(Custom custom) {
 		try {
-			this.listOfClient.add(client);
+			this.listOfCustom.add(custom);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -83,9 +83,9 @@ public class Agency {
 		}
 	}
 
-	public boolean remove(Client client) {
+	public boolean remove(Custom client) {
 		try {
-			listOfClient.remove(client);
+			listOfCustom.remove(client);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -93,7 +93,7 @@ public class Agency {
 	}
 	
 	public String toString() {
-		return this.name;
+		return this.name+" number of employees: "+this.listOfEmployees.size()+" number of client: "+this.listOfCustom.size();
 	}
 
 }
