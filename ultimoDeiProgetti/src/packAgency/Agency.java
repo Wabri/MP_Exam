@@ -1,27 +1,37 @@
 package packAgency;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Agency implements Serializable {
+public class Agency {
 
+	private String name;
 	private Collection<Employee> listOfEmployees;
 	private Collection<Client> listOfClient;
 	private Collection<Product> listOfProduct;
 
-	public Agency() {
+	public Agency(String name) {
+		this.setName(name);
 		listOfEmployees = new LinkedList<Employee>();
 		listOfClient = new LinkedList<Client>();
 		listOfProduct = new LinkedList<Product>();
 	}
-	
-	public Agency(Collection<Employee> listOfEmployees, Collection<Client> listOfClient, Collection<Product> lostOfProduct) {
+
+	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Client> listOfClient, Collection<Product> lostOfProduct) {
+		this.setName(name);
 		this.setListOfEmployees(listOfEmployees);
 		this.setListOfClient(listOfClient);
 		this.setListOfProduct(lostOfProduct);
 	}
+
+	private void setName(String name) {
+		this.name = name;
+	}
 	
+	public String getName() {
+		return this.name;
+	}
+
 	private void setListOfEmployees(Collection<Employee> listOfEmployees) {
 		this.listOfEmployees = listOfEmployees;
 	}
@@ -38,19 +48,13 @@ public class Agency implements Serializable {
 		return listOfEmployees;
 	}
 
-
-
 	public Collection<Client> getListOfClient() {
 		return listOfClient;
 	}
 
-
-
 	public Collection<Product> getListOfProduct() {
 		return listOfProduct;
 	}
-
-
 
 	public boolean add(Employee employee) {
 		try {
@@ -61,13 +65,31 @@ public class Agency implements Serializable {
 		}
 	}
 
-	public boolean remove(Employee myEmployee) {
+	public boolean add(Client client) {
 		try {
-			listOfEmployees.remove(myEmployee);
+			this.listOfClient.add(client);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
-	
+
+	public boolean remove(Employee employee) {
+		try {
+			listOfEmployees.remove(employee);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean remove(Client client) {
+		try {
+			listOfClient.remove(client);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }
