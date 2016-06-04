@@ -6,4 +6,9 @@ public class Client extends Person {
 		super(name,lastName);
 	}
 
+	@Override
+	protected String addThing() {
+		return "Client";
+	}
+
 }

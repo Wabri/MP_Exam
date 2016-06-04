@@ -91,5 +91,9 @@ public class Agency {
 			return false;
 		}
 	}
+	
+	public String toString() {
+		return this.name;
+	}
 
 }

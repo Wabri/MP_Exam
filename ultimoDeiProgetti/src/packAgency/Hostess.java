@@ -6,6 +6,10 @@ public class Hostess extends Employee {
 		super(name, lastName);
 	}
 	
+	protected String addThing() {
+		return "Hostess";
+	}
+	
 	
 
 }

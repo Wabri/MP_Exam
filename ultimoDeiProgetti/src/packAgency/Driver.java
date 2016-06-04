@@ -6,4 +6,9 @@ public class Driver extends Employee {
 		super(name, lastName);
 	}
 
+	protected String addThing() {
+		return "Driver";
+	}
+
+	
 }

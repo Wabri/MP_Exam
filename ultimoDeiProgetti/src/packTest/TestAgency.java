@@ -12,7 +12,10 @@ public class TestAgency {
 
 	@Before
 	public void initialize() {
-		testAgency = new Agency("agencyName1");
+		LinkedList<Employee> testListOfEmployees = new LinkedList<Employee>();
+		LinkedList<Product> testListOfProduct = new LinkedList<Product>();
+		LinkedList<Client> testListOfClient = new LinkedList<Client>();
+		testAgency = new Agency("agencyName1", testListOfEmployees, testListOfClient, testListOfProduct);
 	}
 
 	@Test
@@ -48,15 +51,4 @@ public class TestAgency {
 		assertFalse(testAgency.getListOfClient().contains(testClient));
 	}
 
-	@Test
-	public void testInitializeAgency() {
-		LinkedList<Employee> testListOfEmployees = new LinkedList<Employee>();
-		LinkedList<Product> testListOfProduct = new LinkedList<Product>();
-		LinkedList<Client> testListOfClient = new LinkedList<Client>();
-		testAgency = new Agency("agencyName1", testListOfEmployees, testListOfClient , testListOfProduct);
-		testCreateNewAgency();
-		testAddRemoveEmployee();
-		testAddRemoveClient();
-	}
-	
 }

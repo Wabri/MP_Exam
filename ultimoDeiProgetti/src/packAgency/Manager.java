@@ -6,4 +6,11 @@ public class Manager extends Employee {
 		super(name, lastName);
 	}
 
+	@Override
+	protected String addThing() {
+		return "Manager";
+	}
+	
+	
+
 }

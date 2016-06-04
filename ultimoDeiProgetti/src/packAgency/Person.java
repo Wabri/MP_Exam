@@ -25,5 +25,12 @@ public abstract class Person {
 	public String getLastName() {
 		return lastName;
 	}
+	
+	public String toString() {
+		return this.name+this.lastName+this.addThing();
+		
+	}
+
+	protected abstract String addThing();
 
 }
