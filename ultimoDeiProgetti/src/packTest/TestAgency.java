@@ -12,7 +12,8 @@ public class TestAgency {
 
 	@Before
 	public void initialize() {
-		testAgency = new Agency("agencyName1", new LinkedList<Employee>(), new LinkedList<Custom>(), new LinkedList<Product>(), new LinkedList<Vehicles>());
+		testAgency = new Agency("agencyName1", new LinkedList<Employee>(), new LinkedList<Custom>(),
+				new LinkedList<Product>(), new LinkedList<Vehicle>());
 	}
 
 	@Test
@@ -37,10 +38,10 @@ public class TestAgency {
 		assertTrue(testAgency.remove(testCustom));
 		assertFalse(testAgency.getListOfCustom().contains(testCustom));
 	}
-	
+
 	@Test
 	public void testAddRemoveVehicles() {
-		Vehicles testVehicles = new Vehicles("plate1");
+		Vehicle testVehicles = new Vehicle("plate1");
 		assertTrue(testAgency.add(testVehicles));
 		assertTrue(testAgency.getListOfVehicles().contains(testVehicles));
 		assertTrue(testAgency.remove(testVehicles));
@@ -74,5 +75,5 @@ public class TestAgency {
 			return false;
 		}
 	}
-	
+
 }

@@ -9,17 +9,17 @@ public class Agency {
 	private Collection<Employee> listOfEmployees;
 	private Collection<Custom> listOfCustom;
 	private Collection<Product> listOfProduct;
-	private Collection<Vehicles> listOfVehicles;
+	private Collection<Vehicle> listOfVehicles;
 
 	public Agency(String name) {
 		this.setName(name);
 		listOfEmployees = new LinkedList<Employee>();
 		listOfCustom = new LinkedList<Custom>();
 		listOfProduct = new LinkedList<Product>();
-		listOfVehicles = new LinkedList<Vehicles>();
+		listOfVehicles = new LinkedList<Vehicle>();
 	}
 
-	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom, Collection<Product> lostOfProduct, Collection<Vehicles> listOfVehicles) {
+	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom, Collection<Product> lostOfProduct, Collection<Vehicle> listOfVehicles) {
 		this.setName(name);
 		this.setListOfEmployees(listOfEmployees);
 		this.setListOfCustom(listOfCustom);
@@ -43,7 +43,7 @@ public class Agency {
 		this.listOfProduct = listOfProduct;
 	}
 	
-	private void setListOfVehicles(Collection<Vehicles> listOfVehicles) {
+	private void setListOfVehicles(Collection<Vehicle> listOfVehicles) {
 		this.listOfVehicles = listOfVehicles;
 	}
 
@@ -63,7 +63,7 @@ public class Agency {
 		return listOfProduct;
 	}
 
-	public Collection<Vehicles> getListOfVehicles() {
+	public Collection<Vehicle> getListOfVehicles() {
 		return listOfVehicles;
 	}
 	
@@ -94,7 +94,7 @@ public class Agency {
 		}
 	}
 	
-	public boolean add(Vehicles newVehicles) {
+	public boolean add(Vehicle newVehicles) {
 		try {
 			this.listOfVehicles.add(newVehicles);
 			return true;
@@ -121,7 +121,7 @@ public class Agency {
 		}
 	}
 	
-	public boolean remove(Vehicles oldVehicles) {
+	public boolean remove(Vehicle oldVehicles) {
 		try {
 			this.listOfVehicles.remove(oldVehicles);
 			return true;
