@@ -7,6 +7,10 @@ public class Custom extends Person {
 		this.getCard().setCardDiscount(discount);
 	}
 
+	public Custom(String name, String lastName) {
+		super(name,lastName);
+	}
+
 	@Override
 	protected String addThing() {
 		return "Custom";

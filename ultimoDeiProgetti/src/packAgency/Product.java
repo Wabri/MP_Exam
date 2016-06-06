@@ -30,4 +30,8 @@ public class Product {
 		return this.getNameProduct()+" "+this.getAmount();
 	}
 
+	public double getPriceWithCard(Card card) {
+		return (this.getAmount()-this.getAmount()*card.getDiscount());
+	}
+
 }

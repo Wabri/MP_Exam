@@ -12,10 +12,7 @@ public class TestAgency {
 
 	@Before
 	public void initialize() {
-		LinkedList<Employee> testListOfEmployees = new LinkedList<Employee>();
-		LinkedList<Product> testListOfProduct = new LinkedList<Product>();
-		LinkedList<Custom> testListOfCustom = new LinkedList<Custom>();
-		testAgency = new Agency("agencyName1", testListOfEmployees, testListOfCustom, testListOfProduct);
+		testAgency = new Agency("agencyName1", new LinkedList<Employee>(), new LinkedList<Custom>(), new LinkedList<Product>(), new LinkedList<Vehicles>());
 	}
 
 	@Test
@@ -28,18 +25,8 @@ public class TestAgency {
 		Hostess testHostess = new Hostess("hostessName1", "hostessLastName1");
 		Driver testDriver = new Driver("driverName1", "driverLastName1");
 		Manager testManager = new Manager("managerName1", "managerLastName1");
-		assertTrue(testAgency.add(testHostess));
-		assertTrue(testAgency.add(testDriver));
-		assertTrue(testAgency.add(testManager));
-		assertTrue(testAgency.getListOfEmployees().contains(testManager));
-		assertTrue(testAgency.getListOfEmployees().contains(testDriver));
-		assertTrue(testAgency.getListOfEmployees().contains(testHostess));
-		assertTrue(testAgency.remove(testHostess));
-		assertTrue(testAgency.remove(testDriver));
-		assertTrue(testAgency.remove(testManager));
-		assertFalse(testAgency.getListOfEmployees().contains(testManager));
-		assertFalse(testAgency.getListOfEmployees().contains(testDriver));
-		assertFalse(testAgency.getListOfEmployees().contains(testHostess));
+		assertTrue(addEmployees(testHostess, testDriver, testManager));
+		assertTrue(removeEmployees(testHostess, testDriver, testManager));
 	}
 
 	@Test
@@ -50,5 +37,42 @@ public class TestAgency {
 		assertTrue(testAgency.remove(testCustom));
 		assertFalse(testAgency.getListOfCustom().contains(testCustom));
 	}
+	
+	@Test
+	public void testAddRemoveVehicles() {
+		Vehicles testVehicles = new Vehicles("plate1");
+		assertTrue(testAgency.add(testVehicles));
+		assertTrue(testAgency.getListOfVehicles().contains(testVehicles));
+		assertTrue(testAgency.remove(testVehicles));
+		assertFalse(testAgency.getListOfVehicles().contains(testVehicles));
+	}
 
+	private boolean removeEmployees(Hostess testHostess, Driver testDriver, Manager testManager) {
+		try {
+			assertTrue(testAgency.remove(testHostess));
+			assertTrue(testAgency.remove(testDriver));
+			assertTrue(testAgency.remove(testManager));
+			assertFalse(testAgency.getListOfEmployees().contains(testManager));
+			assertFalse(testAgency.getListOfEmployees().contains(testDriver));
+			assertFalse(testAgency.getListOfEmployees().contains(testHostess));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	private boolean addEmployees(Hostess testHostess, Driver testDriver, Manager testManager) {
+		try {
+			assertTrue(testAgency.add(testHostess));
+			assertTrue(testAgency.add(testDriver));
+			assertTrue(testAgency.add(testManager));
+			assertTrue(testAgency.getListOfEmployees().contains(testManager));
+			assertTrue(testAgency.getListOfEmployees().contains(testDriver));
+			assertTrue(testAgency.getListOfEmployees().contains(testHostess));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 }

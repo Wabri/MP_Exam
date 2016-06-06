@@ -9,27 +9,26 @@ public class Agency {
 	private Collection<Employee> listOfEmployees;
 	private Collection<Custom> listOfCustom;
 	private Collection<Product> listOfProduct;
+	private Collection<Vehicles> listOfVehicles;
 
 	public Agency(String name) {
 		this.setName(name);
 		listOfEmployees = new LinkedList<Employee>();
 		listOfCustom = new LinkedList<Custom>();
 		listOfProduct = new LinkedList<Product>();
+		listOfVehicles = new LinkedList<Vehicles>();
 	}
 
-	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom, Collection<Product> lostOfProduct) {
+	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom, Collection<Product> lostOfProduct, Collection<Vehicles> listOfVehicles) {
 		this.setName(name);
 		this.setListOfEmployees(listOfEmployees);
 		this.setListOfCustom(listOfCustom);
 		this.setListOfProduct(lostOfProduct);
+		this.setListOfVehicles(listOfVehicles);
 	}
 
 	private void setName(String name) {
 		this.name = name;
-	}
-	
-	public String getName() {
-		return this.name;
 	}
 
 	private void setListOfEmployees(Collection<Employee> listOfEmployees) {
@@ -43,7 +42,15 @@ public class Agency {
 	private void setListOfProduct(Collection<Product> listOfProduct) {
 		this.listOfProduct = listOfProduct;
 	}
+	
+	private void setListOfVehicles(Collection<Vehicles> listOfVehicles) {
+		this.listOfVehicles = listOfVehicles;
+	}
 
+	public String getName() {
+		return this.name;
+	}
+	
 	public Collection<Employee> getListOfEmployees() {
 		return listOfEmployees;
 	}
@@ -56,36 +63,67 @@ public class Agency {
 		return listOfProduct;
 	}
 
-	public boolean add(Employee employee) {
+	public Collection<Vehicles> getListOfVehicles() {
+		return listOfVehicles;
+	}
+	
+	public boolean add(Employee newEmployee) {
 		try {
-			listOfEmployees.add(employee);
+			listOfEmployees.add(newEmployee);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
-	public boolean add(Custom custom) {
+	public boolean add(Custom newCustom) {
 		try {
-			this.listOfCustom.add(custom);
+			this.listOfCustom.add(newCustom);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean add(Product newProduct) {
+		try {
+			this.listOfProduct.add(newProduct);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean add(Vehicles newVehicles) {
+		try {
+			this.listOfVehicles.add(newVehicles);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
-	public boolean remove(Employee employee) {
+	public boolean remove(Employee oldEmployee) {
 		try {
-			listOfEmployees.remove(employee);
+			this.listOfEmployees.remove(oldEmployee);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
-	public boolean remove(Custom client) {
+	public boolean remove(Custom oldClient) {
 		try {
-			listOfCustom.remove(client);
+			this.listOfCustom.remove(oldClient);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean remove(Vehicles oldVehicles) {
+		try {
+			this.listOfVehicles.remove(oldVehicles);
 			return true;
 		} catch (Exception e) {
 			return false;

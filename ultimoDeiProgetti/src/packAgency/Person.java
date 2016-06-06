@@ -9,7 +9,7 @@ public abstract class Person {
 	public Person(String name, String lastName) {
 		this.setLastName(lastName);
 		this.setName(name);
-		this.card = this.getTypeCard();
+		this.setCard(this.getTypeCard());
 	}
 	
 	protected abstract Card getTypeCard();
