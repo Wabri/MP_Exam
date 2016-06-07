@@ -6,10 +6,12 @@ public class Vehicle {
 	private boolean travelling;
 	private Driver driverAssociated;
 	private Hostess hostessAssociated;
+	private Custom[] Seat;
 
-	public Vehicle(String plate) {
+	public Vehicle(String plate, int numSeats) {
 		this.setPlate(plate);
 		this.setTravelling(false);
+		this.Seat = new Custom[numSeats];
 	}
 
 	private void setPlate(String plate) {
@@ -55,5 +57,10 @@ public class Vehicle {
 		this.getDriverAssociated().setTravelling(false);
 		this.getHostessAssociated().setTravelling(false);
 	}
+
+	public Custom[] getSeat() {
+		return Seat;
+	}
+
 
 }

@@ -57,7 +57,7 @@ public class TestAgency {
 
 	@Test
 	public void testAddRemoveVehicles() {
-		Vehicle testVehicles = new Vehicle("plate1");
+		Vehicle testVehicles = new Vehicle("plate1", 50);
 		assertTrue(testAgency.add(testVehicles));
 		assertTrue(testAgency.getListOfVehicles().contains(testVehicles));
 		assertTrue(testAgency.remove(testVehicles));

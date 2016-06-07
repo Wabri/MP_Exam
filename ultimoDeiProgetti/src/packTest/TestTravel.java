@@ -33,11 +33,11 @@ public class TestTravel {
 	@Before
 	public void initialize() {
 		listOfVehicles = new LinkedList<Vehicle>();
-		Vehicle tmpVehicle = new Vehicle("plate1");
+		Vehicle tmpVehicle = new Vehicle("plate1", 50);
 		tmpVehicle.setTravelling(true);
 		listOfVehicles.add(tmpVehicle);
-		listOfVehicles.add(new Vehicle("plate2"));
-		listOfVehicles.add(new Vehicle("plate3"));
+		listOfVehicles.add(new Vehicle("plate2",40));
+		listOfVehicles.add(new Vehicle("plate3",30));
 		initializeWithNoVehicles();
 	}
 

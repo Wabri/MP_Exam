@@ -13,22 +13,23 @@ public class Travel extends Product {
 	private Calendar dateArrival;
 	private Collection<Vehicle> listOfVehicles;
 
-	public Travel(String nameProduct, Place departure, Calendar dateDeparture, Place arrival, Calendar dateArrival, double amount) {
+	public Travel(String nameProduct, Place departure, Calendar dateDeparture, Place arrival, Calendar dateArrival,
+			double amount) {
 		super(nameProduct, amount);
 		this.setArrival(arrival);
 		this.setDeparture(departure);
 		this.setListOfVehicles(new LinkedList<Vehicle>());
 	}
 
-	public Travel(String nameProduct, Place departure, Calendar dateDeparture, Place arrival, Calendar dateArrival, double amount,
-			Collection<Vehicle> listOfVehicles) {
+	public Travel(String nameProduct, Place departure, Calendar dateDeparture, Place arrival, Calendar dateArrival,
+			double amount, Collection<Vehicle> listOfVehicles) {
 		super(nameProduct, amount);
 		this.setArrival(arrival);
 		this.setDateDeparture(dateDeparture);
 		this.setDeparture(departure);
 		this.setDateArrival(dateArrival);
 		this.setListOfVehicles(listOfVehicles);
-	}	
+	}
 
 	public Place getDeparture() {
 		return departure;
@@ -45,7 +46,7 @@ public class Travel extends Product {
 	public int getNumOfVehicles() {
 		return this.listOfVehicles.size();
 	}
-	
+
 	public Calendar getDateDeparture() {
 		return dateDeparture;
 	}
@@ -71,9 +72,9 @@ public class Travel extends Product {
 	}
 
 	private void setDateDeparture(Calendar departure) {
-		this.dateDeparture = departure;		
+		this.dateDeparture = departure;
 	}
-	
+
 	public boolean assignVehicle(Collection<Vehicle> listVehicles) {
 		Iterator<Vehicle> iteratorVehicles = listVehicles.iterator();
 		Vehicle tmpVehicles;
@@ -99,6 +100,62 @@ public class Travel extends Product {
 			listOfVehicles.clear();
 			return true;
 		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean setRandomSeat(Custom newCustom) {
+		Iterator<Vehicle> iteratorVehicles = listOfVehicles.iterator();
+		Vehicle tmpVehicles;
+		while (iteratorVehicles.hasNext()) {
+			tmpVehicles = iteratorVehicles.next();
+			Custom[] tmpSeat = tmpVehicles.getSeat();
+			for (int numSeat = 0; numSeat < tmpSeat.length; numSeat++) {
+				try {
+					if (!tmpSeat[numSeat].equals(null)) {
+
+					}
+				} catch (NullPointerException e) {
+					tmpSeat[numSeat] = newCustom;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean removeSeat(Custom testCustomer) {
+		try {
+			Iterator<Vehicle> iteratorVehicles = listOfVehicles.iterator();
+			Vehicle tmpVehicles;
+			while (iteratorVehicles.hasNext()) {
+				tmpVehicles = iteratorVehicles.next();
+				Custom[] tmpSeat = tmpVehicles.getSeat();
+				for (int numSeat = 0; numSeat < tmpSeat.length; numSeat++) {
+					if (tmpSeat[numSeat].equals(testCustomer)) {
+						tmpSeat[numSeat] = null;
+						return true;
+					}
+				}
+			}
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean setSeat(Custom newCustomer, Vehicle toVehicle, int i) {
+		if (this.listOfVehicles.contains(toVehicle)) {
+			Custom[] tmpListCustomer = toVehicle.getSeat();
+			try {
+				if (!tmpListCustomer[i].equals(null)) {
+				}
+			} catch (Exception e) {
+				tmpListCustomer[i] = newCustomer;
+				return true;
+			}
+			return false;
+		} else {
 			return false;
 		}
 	}
