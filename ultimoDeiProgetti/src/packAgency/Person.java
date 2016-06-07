@@ -5,10 +5,12 @@ public abstract class Person {
 	private String name;
 	private String lastName;
 	private Card card;
+	private char[] taxCode = new char[16];
 
-	public Person(String name, String lastName) {
+	public Person(String name, String lastName, char[] taxCode) {
 		this.setLastName(lastName);
 		this.setName(name);
+		this.setTaxCode(taxCode);
 		this.setCard(this.getTypeCard());
 	}
 	
@@ -38,6 +40,14 @@ public abstract class Person {
 		return lastName;
 	}
 	
+	private void setTaxCode(char[] taxCode) {
+		this.taxCode = taxCode;
+	}
+
+	public char[] getTaxCode() {
+		return taxCode;
+	}
+
 	public String toString() {
 		return this.name+this.lastName+this.addThing();
 		

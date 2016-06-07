@@ -112,7 +112,7 @@ public class Agency {
 		}
 	}
 
-	public boolean remove(Custom oldClient) {
+	public boolean remove(Person oldClient) {
 		try {
 			this.listOfCustom.remove(oldClient);
 			return true;
@@ -124,6 +124,15 @@ public class Agency {
 	public boolean remove(Vehicle oldVehicles) {
 		try {
 			this.listOfVehicles.remove(oldVehicles);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean remove(Product oldProduct) {
+		try {
+			this.listOfProduct.remove(oldProduct);
 			return true;
 		} catch (Exception e) {
 			return false;

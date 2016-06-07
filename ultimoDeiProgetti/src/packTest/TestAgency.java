@@ -9,30 +9,46 @@ import packAgency.*;
 public class TestAgency {
 
 	Agency testAgency;
+	char[] testTaxCode = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 
-	@Before
-	public void initialize() {
+	public void initializeNoSpecific() {
+		testAgency = new Agency("agencyName1");
+	}
+	
+	public void initializeWithSpecific() {
 		testAgency = new Agency("agencyName1", new LinkedList<Employee>(), new LinkedList<Custom>(),
 				new LinkedList<Product>(), new LinkedList<Vehicle>());
 	}
+	
+	@Before
+	public void inizialize() {
+		this.initializeNoSpecific();
+	}
 
 	@Test
-	public void testCreateNewAgency() {
+	public void testCreateNewAgencyNoSpecific() {
+		this.initializeNoSpecific();
+		assertFalse(testAgency.equals(null));
+	}
+	
+	@Test
+	public void testCreateNewAgencyWithSpecific() {
+		this.initializeWithSpecific();
 		assertFalse(testAgency.equals(null));
 	}
 
 	@Test
 	public void testAddRemoveEmployee() {
-		Hostess testHostess = new Hostess("hostessName1", "hostessLastName1");
-		Driver testDriver = new Driver("driverName1", "driverLastName1");
-		Manager testManager = new Manager("managerName1", "managerLastName1");
+		Hostess testHostess = new Hostess("hostessName1", "hostessLastName1",testTaxCode);
+		Driver testDriver = new Driver("driverName1", "driverLastName1",testTaxCode);
+		Manager testManager = new Manager("managerName1", "managerLastName1",testTaxCode);
 		assertTrue(addEmployees(testHostess, testDriver, testManager));
 		assertTrue(removeEmployees(testHostess, testDriver, testManager));
 	}
 
 	@Test
 	public void testAddRemoveCustom() {
-		Custom testCustom = new Custom("customName1", "customLastName1", 0);
+		Custom testCustom = new Custom("customName1", "customLastName1", testTaxCode);
 		assertTrue(testAgency.add(testCustom));
 		assertTrue(testAgency.getListOfCustom().contains(testCustom));
 		assertTrue(testAgency.remove(testCustom));
@@ -46,6 +62,15 @@ public class TestAgency {
 		assertTrue(testAgency.getListOfVehicles().contains(testVehicles));
 		assertTrue(testAgency.remove(testVehicles));
 		assertFalse(testAgency.getListOfVehicles().contains(testVehicles));
+	}
+	
+	@Test
+	public void testAddRemoveProduct() {
+		Product testProduct = new Product("nameProduct1", 100.);
+		assertTrue(testAgency.add(testProduct));
+		assertTrue(testAgency.getListOfProduct().contains(testProduct));
+		assertTrue(testAgency.remove(testProduct));
+		assertFalse(testAgency.getListOfProduct().contains(testProduct));
 	}
 
 	private boolean removeEmployees(Hostess testHostess, Driver testDriver, Manager testManager) {

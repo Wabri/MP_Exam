@@ -11,9 +11,10 @@ import packAgency.Manager;
 import packAgency.Person;
 import packAgency.Product;
 
-public class TestPerson {
+public class TestCardPrice {
 
 	Product testProduct;
+	char[] testTaxCode = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 	
 	@Before
 	public void initialize() {
@@ -21,27 +22,27 @@ public class TestPerson {
 	}
 	
 	@Test
-	public void testCustomPrizeWithCard() {
-		Person testCustom = new Custom("nameCustom1", "lastNameCustom1",.50);
+	public void testCustomPriceWithCard() {
+		Person testCustom = new Custom("nameCustom1", "lastNameCustom1",.50, testTaxCode);
 		assertTrue(50. == testProduct.getPriceWithCard(testCustom.getCard()));
 	}
 
 	@Test
-	public void testCustomPrizeWithoutCard() {
-		Person testCustom = new Custom("nameCustom1", "lastNameCustom1");
+	public void testCustomPriceWithoutCard() {
+		Person testCustom = new Custom("nameCustom1", "lastNameCustom1", testTaxCode);
 		assertTrue(100. == testProduct.getPriceWithCard(testCustom.getCard()));
 	}
 	
 	@Test
-	public void testEmployeePrizeWithCard() {
-		Person testDriver = new Driver("nameDriver1","lastNameDriver1");
+	public void testEmployeePriceWithCard() {
+		Person testDriver = new Driver("nameDriver1","lastNameDriver1",testTaxCode);
 		testDriver.getCard().setCardDiscount(.50);
 		assertTrue(50. == testProduct.getPriceWithCard(testDriver.getCard()));
 	}
 	
 	@Test
-	public void testEmployeePrizeWithoutCard() {
-		Person testManager = new Manager("nameCustom1", "lastNameCustom1");
+	public void testEmployeePriceWithoutCard() {
+		Person testManager = new Manager("nameCustom1", "lastNameCustom1",testTaxCode);
 		assertTrue(100. == testProduct.getPriceWithCard(testManager.getCard()));
 	}
 }

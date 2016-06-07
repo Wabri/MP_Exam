@@ -17,7 +17,7 @@ public class Vehicle {
 	}
 
 	public boolean isTravelling() {
-		return travelling;
+		return this.travelling;
 	}
 
 	public void setTravelling(boolean travelling) {
@@ -51,11 +51,9 @@ public class Vehicle {
 	}
 
 	public void resetVehicles() {
-		setTravelling(false);
-		getDriverAssociated().setTravelling(false);
-		getHostessAssociated().setTravelling(false);
-		setDriverAssociated(null);
-		setHostessAssociated(null);
+		this.setTravelling(false);
+		this.getDriverAssociated().setTravelling(false);
+		this.getHostessAssociated().setTravelling(false);
 	}
 
 }

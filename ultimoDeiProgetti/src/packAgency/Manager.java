@@ -2,8 +2,8 @@ package packAgency;
 
 public class Manager extends Employee {
 
-	public Manager(String name, String lastName) {
-		super(name, lastName);
+	public Manager(String name, String lastName, char[] taxCode) {
+		super(name, lastName, taxCode);
 	}
 
 	@Override

@@ -4,8 +4,8 @@ public class Hostess extends Employee {
 
 	private boolean travelling;
 
-	public Hostess(String name, String lastName) {
-		super(name, lastName);
+	public Hostess(String name, String lastName, char[] taxCode) {
+		super(name, lastName,taxCode);
 	}
 
 	public boolean isTravelling() {

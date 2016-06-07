@@ -4,8 +4,8 @@ public class Driver extends Employee {
 
 	private boolean travelling;
 	
-	public Driver(String name, String lastName) {
-		super(name, lastName);
+	public Driver(String name, String lastName, char[] taxCode) {
+		super(name, lastName, taxCode);
 		travelling = false;
 	}
 
