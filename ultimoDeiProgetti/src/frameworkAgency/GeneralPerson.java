@@ -1,4 +1,4 @@
-package frameWorkAgency;
+package frameworkAgency;
 
 public interface GeneralPerson {
 

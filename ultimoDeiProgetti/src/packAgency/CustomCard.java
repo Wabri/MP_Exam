@@ -1,6 +1,6 @@
 package packAgency;
 
-import frameWorkAgency.GeneralPerson;
+import frameworkAgency.GeneralPerson;
 
 public class CustomCard extends Card {
 	

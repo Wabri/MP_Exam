@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import frameWorkAgency.GeneralProduct;
+import frameworkAgency.GeneralProduct;
 import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Manager;

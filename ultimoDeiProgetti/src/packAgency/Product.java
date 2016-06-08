@@ -1,7 +1,7 @@
 package packAgency;
 
-import frameWorkAgency.GeneralCard;
-import frameWorkAgency.GeneralProduct;
+import frameworkAgency.GeneralCard;
+import frameworkAgency.GeneralProduct;
 
 public class Product implements GeneralProduct {
 

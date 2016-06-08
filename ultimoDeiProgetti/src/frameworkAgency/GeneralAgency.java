@@ -1,7 +1,9 @@
-package frameWorkAgency;
+package frameworkAgency;
 
 public interface GeneralAgency {
 
 	String getName();
+
+	String toString();
 
 }

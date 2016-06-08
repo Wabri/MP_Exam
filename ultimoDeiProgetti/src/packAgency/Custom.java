@@ -3,7 +3,7 @@ package packAgency;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import frameWorkAgency.GeneralCard;
+import frameworkAgency.GeneralCard;
 
 public class Custom extends PersonAgency {
 

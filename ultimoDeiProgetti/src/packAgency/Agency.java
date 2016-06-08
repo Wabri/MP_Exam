@@ -3,8 +3,8 @@ package packAgency;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import frameWorkAgency.GeneralAgency;
-import frameWorkAgency.GeneralProduct;
+import frameworkAgency.GeneralAgency;
+import frameworkAgency.GeneralProduct;
 
 public class Agency implements GeneralAgency {
 
@@ -50,9 +50,6 @@ public class Agency implements GeneralAgency {
 		this.listOfVehicles = listOfVehicles;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralAgency#getName()
-	 */
 	@Override
 	public String getName() {
 		return this.name;
@@ -146,6 +143,7 @@ public class Agency implements GeneralAgency {
 		}
 	}
 	
+	@Override
 	public String toString() {
 		return this.name+" number of employees: "+this.listOfEmployees.size()+" number of client: "+this.listOfCustom.size();
 	}

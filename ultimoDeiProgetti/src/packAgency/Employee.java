@@ -1,6 +1,6 @@
 package packAgency;
 
-import frameWorkAgency.GeneralCard;
+import frameworkAgency.GeneralCard;
 
 public abstract class Employee extends PersonAgency{
 	

@@ -1,7 +1,7 @@
 package packAgency;
 
-import frameWorkAgency.GeneralCard;
-import frameWorkAgency.GeneralPerson;
+import frameworkAgency.GeneralCard;
+import frameworkAgency.GeneralPerson;
 
 public abstract class Card implements GeneralCard {
 
