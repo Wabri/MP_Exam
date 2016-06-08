@@ -68,7 +68,7 @@ public abstract class PersonAgency implements GeneralPerson {
 	 */
 	@Override
 	public String toString() {
-		return this.name+this.lastName+this.addThing();
+		return " "+this.name+" "+this.lastName+" "+this.addThing();
 		
 	}
 
