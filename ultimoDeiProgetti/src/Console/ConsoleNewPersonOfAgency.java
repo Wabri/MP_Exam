@@ -1,60 +1,63 @@
-package packTest;
+package Console;
 
 import java.util.Scanner;
+
+import frameworkAgency.GeneralPerson;
 import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Employee;
 import packAgency.Hostess;
 import packAgency.Manager;
 
-public class Console {
+public class ConsoleNewPersonOfAgency {
 
-	public static void main(String[] args) {
+	public static GeneralPerson getPerson() {
 		Scanner typePersonIO = new Scanner(System.in);
 		getMenuOfTypePerson();
 		int resp = typePersonIO.nextInt();
-		getAction(resp);
 		typePersonIO.close();
+		return getAction(resp);
 	}
 
-	private static void getAction(int resp) {
+	private static GeneralPerson getAction(int resp) {
 		switch (resp) {
 		case 1:
-			getMenuForCustom();
-			break;
+			return getMenuForCustom();
 		case 2:
-			getMenuForHostess();
-			break;
+			return getMenuForHostess();
 		case 3:	
-			getMenuForDriver();
-			break;
+			return getMenuForDriver();
 		case 4:
-			getMenuForManager();
-			break;
+			return getMenuForManager();
 		default:
 			System.out.println("non sei nessuno");
 			getMenuOfTypePerson();
+			return null;
 		}
 	}
 
-	private static void getMenuForManager() {
+	private static GeneralPerson getMenuForManager() {
 			Employee nuovoDipendente = new Manager(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 			System.out.println(nuovoDipendente.toString());
+			return nuovoDipendente;
 	}
 	
-	private static void getMenuForHostess() {
+	private static GeneralPerson getMenuForHostess() {
 		Employee nuovoDipendente = new Hostess(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 		System.out.println(nuovoDipendente.toString());
+		return nuovoDipendente;
 	}
 
-	private static void getMenuForDriver() {
+	private static GeneralPerson getMenuForDriver() {
 		Employee nuovoDipendente = new Driver(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 		System.out.println(nuovoDipendente.toString());
+		return nuovoDipendente;
 	}
 
-	private static void getMenuForCustom() {
+	private static GeneralPerson getMenuForCustom() {
 		Custom nuovoCliente = new Custom(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
-		System.out.println(nuovoCliente.toString());	
+		System.out.println(nuovoCliente.toString());
+		return nuovoCliente;
 	}
 	
 	private static char[] getKeyboardCF() {
@@ -84,7 +87,7 @@ public class Console {
 	}
 
 	private static void getMenuOfTypePerson() {
-		System.out.println("che credenziali d'accesso hai?");
+		System.out.println("che tipo di Persone nell'agenzia sei?");
 		System.out.println("1 - Cliente");
 		System.out.println("2 - Hostess");
 		System.out.println("3 - Driver");
