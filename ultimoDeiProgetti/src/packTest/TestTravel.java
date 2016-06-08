@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
+import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Hostess;
 import packAgency.Place;
@@ -57,6 +58,16 @@ public class TestTravel {
 		assertTrue(0 == testTravel.getNumOfVehicles());
 	}
 
+	@Test
+	public void testCatchExceptionTravel() {
+		Travel testExceptionTravel = new Travel("ciao", null, null, null, null, 0, null);
+		assertFalse(testExceptionTravel.assignVehicle(null));
+		assertFalse(testExceptionTravel.endTravel());
+		assertFalse(testExceptionTravel.removeSeat(new Custom("nameCustom1", "lastNameCustom1", null)));
+		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null), null, 50));
+		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null), new Vehicle("plate1", 10), 50));
+	}
+	
 	private boolean assignTeamToVehicles() {
 		try {
 			char[] testTaxCode = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};

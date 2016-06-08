@@ -3,7 +3,10 @@ package packAgency;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Agency {
+import frameWorkAgency.GeneralAgency;
+import frameWorkAgency.GeneralProduct;
+
+public class Agency implements GeneralAgency {
 
 	private String name;
 	private Collection<Employee> listOfEmployees;
@@ -47,6 +50,10 @@ public class Agency {
 		this.listOfVehicles = listOfVehicles;
 	}
 
+	/* (non-Javadoc)
+	 * @see packAgency.GeneralAgency#getName()
+	 */
+	@Override
 	public String getName() {
 		return this.name;
 	}
@@ -112,9 +119,9 @@ public class Agency {
 		}
 	}
 
-	public boolean remove(Person oldClient) {
+	public boolean remove(Custom oldCustom) {
 		try {
-			this.listOfCustom.remove(oldClient);
+			this.listOfCustom.remove(oldCustom);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -130,7 +137,7 @@ public class Agency {
 		}
 	}
 	
-	public boolean remove(Product oldProduct) {
+	public boolean remove(GeneralProduct oldProduct) {
 		try {
 			this.listOfProduct.remove(oldProduct);
 			return true;

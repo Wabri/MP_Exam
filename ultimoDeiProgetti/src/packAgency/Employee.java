@@ -1,12 +1,14 @@
 package packAgency;
 
-public abstract class Employee extends Person{
+import frameWorkAgency.GeneralCard;
+
+public abstract class Employee extends PersonAgency{
 	
 	public Employee(String name, String lastName, char[] taxCode) {
 		super(name,lastName, taxCode);
 	}
 	
-	protected Card getTypeCard() {
+	protected GeneralCard getTypeCard() {
 		return new EmployeeCard(this, 0.);
 	}
 	

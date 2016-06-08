@@ -1,27 +1,42 @@
 package packAgency;
 
-public abstract class Card {
+import frameWorkAgency.GeneralCard;
+import frameWorkAgency.GeneralPerson;
 
-	private Person accountholder;
+public abstract class Card implements GeneralCard {
+
+	private GeneralPerson accountholder;
 	private double discount;
 
-	public Card (Person accountholder, double discount) {
+	public Card (GeneralPerson accountholder, double discount) {
 		this.setAccountholder(accountholder);
 		this.setCardDiscount(discount);
 	}
 	
-	private void setAccountholder(Person accountholder) {
+	private void setAccountholder(GeneralPerson accountholder) {
 		this.accountholder = accountholder;
 	}
 
+	/* (non-Javadoc)
+	 * @see packAgency.GeneralCard#setCardDiscount(double)
+	 */
+	@Override
 	public void setCardDiscount(double discount) {
 		this.discount = discount;
 	}
 
-	public Person getAccountholder() {
+	/* (non-Javadoc)
+	 * @see packAgency.GeneralCard#getAccountholder()
+	 */
+	@Override
+	public GeneralPerson getAccountholder() {
 		return accountholder;
 	}
 
+	/* (non-Javadoc)
+	 * @see packAgency.GeneralCard#getDiscount()
+	 */
+	@Override
 	public double getDiscount() {
 		return discount;
 	}

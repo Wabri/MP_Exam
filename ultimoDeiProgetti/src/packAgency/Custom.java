@@ -3,7 +3,9 @@ package packAgency;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Custom extends Person {
+import frameWorkAgency.GeneralCard;
+
+public class Custom extends PersonAgency {
 
 	private Collection<Travel> listOfBooking;
 
@@ -27,7 +29,7 @@ public class Custom extends Person {
 		return "Custom";
 	}
 
-	protected Card getTypeCard() {
+	protected GeneralCard getTypeCard() {
 		return new CustomCard(this, 0.);
 	}
 

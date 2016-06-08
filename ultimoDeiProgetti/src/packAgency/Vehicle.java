@@ -7,6 +7,7 @@ public class Vehicle {
 	private Driver driverAssociated;
 	private Hostess hostessAssociated;
 	private Custom[] Seat;
+	private boolean full;
 
 	public Vehicle(String plate, int numSeats) {
 		this.setPlate(plate);
@@ -20,6 +21,14 @@ public class Vehicle {
 
 	public boolean isTravelling() {
 		return this.travelling;
+	}
+
+	public boolean isFull() {
+		return full;
+	}
+
+	public void setFull(boolean full) {
+		this.full = full;
 	}
 
 	public void setTravelling(boolean travelling) {
@@ -54,6 +63,9 @@ public class Vehicle {
 
 	public void resetVehicles() {
 		this.setTravelling(false);
+		this.setFull(false);
+		int tmpNumSeat = Seat.length;
+		this.Seat = new Custom[tmpNumSeat];
 		this.getDriverAssociated().setTravelling(false);
 		this.getHostessAssociated().setTravelling(false);
 	}
@@ -61,6 +73,5 @@ public class Vehicle {
 	public Custom[] getSeat() {
 		return Seat;
 	}
-
 
 }

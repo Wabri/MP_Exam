@@ -72,6 +72,19 @@ public class TestAgency {
 		assertTrue(testAgency.remove(testProduct));
 		assertFalse(testAgency.getListOfProduct().contains(testProduct));
 	}
+	
+	@Test
+	public void testCatchException () {
+		Agency testCatchAgency = new Agency("nameAgency1", null, null, null, null);
+		assertFalse(testCatchAgency.add(new Custom("nameCustom1", "lastNameCustom1", testTaxCode)));
+		assertFalse(testCatchAgency.add(new Manager("nameManager1", "lastNameManager1", testTaxCode)));
+		assertFalse(testCatchAgency.add(new Product("product1", 100.)));
+		assertFalse(testCatchAgency.add(new Vehicle("plate1", 10)));
+		assertFalse(testCatchAgency.remove(new Hostess("nameHostess1", "lastNameHostess1", testTaxCode)));
+		assertFalse(testCatchAgency.remove(new Custom("nameCustom1", "lastNameCustom1", testTaxCode)));
+		assertFalse(testCatchAgency.remove(new Vehicle("plate1", 50)));
+		assertFalse(testCatchAgency.remove(new Product("nameProduct1", 200.)));
+	}
 
 	private boolean removeEmployees(Hostess testHostess, Driver testDriver, Manager testManager) {
 		try {

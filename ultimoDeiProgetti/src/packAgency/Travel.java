@@ -76,15 +76,19 @@ public class Travel extends Product {
 	}
 
 	public boolean assignVehicle(Collection<Vehicle> listVehicles) {
-		Iterator<Vehicle> iteratorVehicles = listVehicles.iterator();
-		Vehicle tmpVehicles;
-		while (iteratorVehicles.hasNext()) {
-			tmpVehicles = iteratorVehicles.next();
-			if (!tmpVehicles.isTravelling()) {
-				this.listOfVehicles.add(tmpVehicles);
-				tmpVehicles.setTravelling(true);
-				return true;
+		try {
+			Iterator<Vehicle> iteratorVehicles = listVehicles.iterator();
+			Vehicle tmpVehicles;
+			while (iteratorVehicles.hasNext()) {
+				tmpVehicles = iteratorVehicles.next();
+				if (!tmpVehicles.isTravelling()) {
+					this.listOfVehicles.add(tmpVehicles);
+					tmpVehicles.setTravelling(true);
+					return true;
+				}
 			}
+		} catch (NullPointerException e) {
+			return false;
 		}
 		return false;
 	}
@@ -110,16 +114,18 @@ public class Travel extends Product {
 		while (iteratorVehicles.hasNext()) {
 			tmpVehicles = iteratorVehicles.next();
 			Custom[] tmpSeat = tmpVehicles.getSeat();
-			for (int numSeat = 0; numSeat < tmpSeat.length; numSeat++) {
-				try {
-					if (!tmpSeat[numSeat].equals(null)) {
-
+			if (!tmpVehicles.isFull()) {
+				for (int numSeat = 0; numSeat < tmpSeat.length; numSeat++) {
+					try {
+						if (!tmpSeat[numSeat].equals(null)) {
+						}
+					} catch (NullPointerException e) {
+						tmpSeat[numSeat] = newCustom;
+						return true;
 					}
-				} catch (NullPointerException e) {
-					tmpSeat[numSeat] = newCustom;
-					return true;
 				}
 			}
+			tmpVehicles.setFull(true);
 		}
 		return false;
 	}
@@ -145,19 +151,25 @@ public class Travel extends Product {
 	}
 
 	public boolean setSeat(Custom newCustomer, Vehicle toVehicle, int i) {
-		if (this.listOfVehicles.contains(toVehicle)) {
-			Custom[] tmpListCustomer = toVehicle.getSeat();
-			try {
-				if (!tmpListCustomer[i].equals(null)) {
+		try {
+			if (!toVehicle.isFull()) {
+				if (this.listOfVehicles.contains(toVehicle)) {
+					Custom[] tmpListCustomer = toVehicle.getSeat();
+					try {
+						if (!tmpListCustomer[i].equals(null)) {
+						}
+					} catch (Exception e) {
+						tmpListCustomer[i] = newCustomer;
+						return true;
+					}
+				} else {
+					return false;
 				}
-			} catch (Exception e) {
-				tmpListCustomer[i] = newCustomer;
-				return true;
 			}
-			return false;
-		} else {
+		} catch (NullPointerException e) {
 			return false;
 		}
+		return false;
 	}
 
 }
