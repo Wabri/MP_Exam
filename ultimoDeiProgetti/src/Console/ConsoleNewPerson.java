@@ -3,6 +3,7 @@ package Console;
 import java.util.Scanner;
 
 import frameworkAgency.GeneralPerson;
+import packAgency.Agency;
 import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Employee;
@@ -11,50 +12,49 @@ import packAgency.Manager;
 
 public class ConsoleNewPerson extends ConsoleGeneric {
 
-	public static GeneralPerson getPerson() {
+	public static void getPerson(Agency toAgency) {
 		Scanner typePersonIO = new Scanner(System.in);
 		getMenuOfTypePerson();
 		int resp = typePersonIO.nextInt();
-		typePersonIO.close();
-		return getAction(resp);
+		getAction(resp, toAgency);
 	}
 
-	private static GeneralPerson getAction(int resp) {
+	private static void getAction(int resp, Agency toAgency) {
 		switch (resp) {
 		case 1:
-			return getMenuForCustom();
+			toAgency.add(getMenuForCustom());
 		case 2:
-			return getMenuForHostess();
+			toAgency.add(getMenuForHostess());
 		case 3:	
-			return getMenuForDriver();
+			toAgency.add(getMenuForDriver());
 		case 4:
-			return getMenuForManager();
+			toAgency.add(getMenuForManager());
 		default:
 			System.out.println("non sei nessuno");
 			getMenuOfTypePerson();
-			return null;
+			break;
 		}
 	}
 
-	private static GeneralPerson getMenuForManager() {
-			Employee nuovoDipendente = new Manager(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+	private static Manager getMenuForManager() {
+			Manager nuovoDipendente = new Manager(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 			System.out.println(nuovoDipendente.toString());
 			return nuovoDipendente;
 	}
 	
-	private static GeneralPerson getMenuForHostess() {
-		Employee nuovoDipendente = new Hostess(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+	private static Hostess getMenuForHostess() {
+		Hostess nuovoDipendente = new Hostess(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 		System.out.println(nuovoDipendente.toString());
 		return nuovoDipendente;
 	}
 
-	private static GeneralPerson getMenuForDriver() {
-		Employee nuovoDipendente = new Driver(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+	private static Driver getMenuForDriver() {
+		Driver nuovoDipendente = new Driver(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 		System.out.println(nuovoDipendente.toString());
 		return nuovoDipendente;
 	}
 
-	private static GeneralPerson getMenuForCustom() {
+	private static Custom getMenuForCustom() {
 		Custom nuovoCliente = new Custom(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
 		System.out.println(nuovoCliente.toString());
 		return nuovoCliente;
