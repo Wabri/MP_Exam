@@ -9,7 +9,7 @@ import packAgency.Employee;
 import packAgency.Hostess;
 import packAgency.Manager;
 
-public class ConsoleNewPersonOfAgency {
+public class ConsoleNewPerson extends ConsoleGeneric {
 
 	public static GeneralPerson getPerson() {
 		Scanner typePersonIO = new Scanner(System.in);
@@ -81,13 +81,8 @@ public class ConsoleNewPersonOfAgency {
 		return lastName;
 	}
 
-	private static String getString() {
-		Scanner keyboard = new Scanner(System.in);
-		return keyboard.nextLine();
-	}
-
 	private static void getMenuOfTypePerson() {
-		System.out.println("che tipo di Persone nell'agenzia sei?");
+		System.out.println("Che tipo di Persona vuoi aggiungere?");
 		System.out.println("1 - Cliente");
 		System.out.println("2 - Hostess");
 		System.out.println("3 - Driver");
