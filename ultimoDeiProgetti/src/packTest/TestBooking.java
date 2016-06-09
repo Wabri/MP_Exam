@@ -25,7 +25,7 @@ public class TestBooking {
 	public void initialize() {
 		testCustomer = new Custom("nameCustomer1", "lastNameCustomer1", testTaxCode);
 		Collection<Vehicle> listOfVehicles = new LinkedList<Vehicle>();
-		testVehicle = new Vehicle("plate1",100);
+		testVehicle = new Vehicle("plate1",3);
 		listOfVehicles.add(testVehicle);
 		testTravel = new Travel("nameTravel1", new Place("namePlace1"), new GregorianCalendar(2016,1,5), new Place("namePlace2"), new GregorianCalendar(2016, 1, 10), 100., listOfVehicles);
 	}
@@ -39,13 +39,17 @@ public class TestBooking {
 	}
 	
 	@Test
-	public void testSetSeat() {
+	public void testSetRemoveSeat() {
 		assertTrue(testTravel.setRandomSeat(testCustomer));
 		assertFalse(testTravel.setSeat(testCustomer,testVehicle,0));
 		assertTrue(testTravel.setSeat(new Custom("nameCustom1","lastNameCustom1",testTaxCode), testVehicle, 2));
+		assertTrue(testTravel.setRandomSeat(testCustomer));
 		assertFalse(testTravel.setSeat(testCustomer, new Vehicle("plate2", 10), 1));
+		assertFalse(testTravel.setRandomSeat(testCustomer));
 		assertTrue(testTravel.removeSeat(testCustomer));
 		assertFalse(testTravel.removeSeat(new Custom("nameCustom3", "lastNameCustom3", testTaxCode)));
+		testTravel = new Travel(null, null, null, null, null, 100, null);
+		assertFalse(testTravel.removeAllVehicles());
 	}
 	
 }

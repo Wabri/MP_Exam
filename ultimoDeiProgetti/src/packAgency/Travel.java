@@ -105,7 +105,16 @@ public class Travel extends Product {
 				tmpVehicles = iteratorVehicles.next();
 				tmpVehicles.resetVehicles();
 			}
-			listOfVehicles.clear();
+			this.removeAllVehicles();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean removeAllVehicles() {
+		try {
+			this.listOfVehicles.clear();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -175,15 +184,16 @@ public class Travel extends Product {
 		}
 		return false;
 	}
-	
+
 	public String toString() {
-		return this.getNameProduct()+" "+this.departure+" "+formatDate(this.dateDeparture)+" "+this.arrival+" "+formatDate(this.dateArrival)+" "+getAmount();
-	}	
+		return this.getNameProduct() + " " + this.departure + " " + formatDate(this.dateDeparture) + " " + this.arrival
+				+ " " + formatDate(this.dateArrival) + " " + getAmount();
+	}
 
 	private String formatDate(Calendar dateFormat) {
 		SimpleDateFormat tmp = new SimpleDateFormat("dd-MM-yyyy");
 		GregorianCalendar tmpDate = (GregorianCalendar) dateFormat.clone();
-		tmpDate.set(Calendar.MONTH, tmpDate.get(Calendar.MONTH)-1);
+		tmpDate.set(Calendar.MONTH, tmpDate.get(Calendar.MONTH) - 1);
 		tmp.setCalendar(tmpDate);
 		return tmp.format(tmpDate.getTime());
 	}

@@ -56,7 +56,7 @@ public abstract class PersonAgency implements GeneralPerson {
 
 	@Override
 	public String toString() {
-		return "Nome : "+this.name+"\nCognome : "+this.lastName+"\nCodice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
+		return "Nome : "+this.getName()+"\nCognome : "+this.getLastName()+"\nCodice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
 		
 	}
 
