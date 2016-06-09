@@ -23,15 +23,18 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 		switch (resp) {
 		case 1:
 			toAgency.add(getMenuForCustom());
+			break;
 		case 2:
 			toAgency.add(getMenuForHostess());
+			break;
 		case 3:	
 			toAgency.add(getMenuForDriver());
+			break;
 		case 4:
 			toAgency.add(getMenuForManager());
+			break;
 		default:
 			System.out.println("non sei nessuno");
-			getMenuOfTypePerson();
 			break;
 		}
 	}
@@ -63,21 +66,18 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 	private static char[] getKeyboardCF() {
 		System.out.println("Inserisci il tuo codFisc:");
 		String tmpTC = getString();
-		System.out.println("il tuo codFisc è: " + tmpTC);
 		return tmpTC.toCharArray();
 	}
 
 	private static String getKeyboardName() {
 		System.out.println("Inserisci il tuo nome:");
 		String name = getString();
-		System.out.println("il tuo nome è: " + name);
 		return name;
 	}
 	
 	private static String getKeyboardLastName() {
 		System.out.println("Inserisci il tuo cognome:");
 		String lastName = getString();
-		System.out.println("il tuo cognome è: " + lastName);
 		return lastName;
 	}
 

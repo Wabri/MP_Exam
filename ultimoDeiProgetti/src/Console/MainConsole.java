@@ -11,12 +11,15 @@ package Console;
 
 		public static void main (String args[]) {
 			displayMainMenu();
-			Scanner typePersonIO = new Scanner(System.in);
-			int resp = typePersonIO.nextInt();
+			Scanner agencyIO = new Scanner(System.in);
+			int resp = agencyIO.nextInt();
 			getMainAction(resp);
-			displaySubMenu();
-			resp = typePersonIO.nextInt();
-			getSubAction(resp);
+			while (resp!=5) {
+				displaySubMenu();
+				resp = agencyIO.nextInt();
+				getSubAction(resp);
+			}
+			agencyIO.close();
 		}
 		
 		private static void getMainAction(int resp) {
@@ -48,7 +51,9 @@ package Console;
 			System.out.println(" Agenzia Viaggi "+newAgency.getName());
 			System.out.println("1 - Aggiungi una persona");
 			System.out.println("2 - Aggiungi un veicolo");
-			System.out.println("3 - Aggiungi un programma di viaggio");
+			System.out.println("3 - Aggiungi una località ");
+			System.out.println("4 - Aggiungi un viaggio");
+			System.out.println("5 - Escile dal programma ");
 		}
 		
 		private static void getSubAction(int resp) {
@@ -59,12 +64,19 @@ package Console;
 			case 2:
   				ConsoleNewVehicle.getVehicle(newAgency);
 				break;
-			case 3: 
-				ConsoleNewProduct.getProduct(newAgency);
+			case 3:
+				ConsoleNewPlace.getPlace(newAgency);
 				break;
-			default:
-				System.out.println("Non va bene, scegli di nuovo");
+			case 4: 
+				ConsoleNewTravel.getTravel(newAgency);
+				break;
+			case 5:
+				System.out.println("Le esco");
+				System.exit(1);
+				break;
+			default: 
+				break;
 			}
 		}
-
+		
 	}

@@ -1,7 +1,9 @@
 package packAgency;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -17,7 +19,9 @@ public class Travel extends Product {
 			double amount) {
 		super(nameProduct, amount);
 		this.setArrival(arrival);
+		this.setDateArrival(dateArrival);
 		this.setDeparture(departure);
+		this.setDateDeparture(dateDeparture);
 		this.setListOfVehicles(new LinkedList<Vehicle>());
 	}
 
@@ -170,6 +174,18 @@ public class Travel extends Product {
 			return false;
 		}
 		return false;
+	}
+	
+	public String toString() {
+		return this.getNameProduct()+" "+this.departure+" "+formatDate(this.dateDeparture)+" "+this.arrival+" "+formatDate(this.dateArrival)+" "+getAmount();
+	}	
+
+	private String formatDate(Calendar dateFormat) {
+		SimpleDateFormat tmp = new SimpleDateFormat("dd-MM-yyyy");
+		GregorianCalendar tmpDate = (GregorianCalendar) dateFormat.clone();
+		tmpDate.set(Calendar.MONTH, tmpDate.get(Calendar.MONTH)-1);
+		tmp.setCalendar(tmpDate);
+		return tmp.format(tmpDate.getTime());
 	}
 
 }
