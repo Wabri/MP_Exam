@@ -141,7 +141,7 @@ public class Travel extends Product {
 			while (iteratorVehicles.hasNext()) {
 				tmpVehicles = iteratorVehicles.next();
 				Custom[] tmpSeat = tmpVehicles.getSeat();
-				for (int numSeat = 0; numSeat < tmpSeat.length; numSeat++) {
+				for (int numSeat = 0; numSeat <= tmpSeat.length; numSeat++) {
 					if (tmpSeat[numSeat].equals(testCustomer)) {
 						tmpSeat[numSeat] = null;
 						return true;

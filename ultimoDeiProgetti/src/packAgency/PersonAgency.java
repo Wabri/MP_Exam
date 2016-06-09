@@ -35,17 +35,11 @@ public abstract class PersonAgency implements GeneralPerson {
 		this.lastName = lastName;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralPerson#getName()
-	 */
 	@Override
 	public String getName() {
 		return name;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralPerson#getLastName()
-	 */
 	@Override
 	public String getLastName() {
 		return lastName;
@@ -55,20 +49,14 @@ public abstract class PersonAgency implements GeneralPerson {
 		this.taxCode = taxCode;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralPerson#getTaxCode()
-	 */
 	@Override
 	public char[] getTaxCode() {
 		return taxCode;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralPerson#toString()
-	 */
 	@Override
 	public String toString() {
-		return " "+this.name+" "+this.lastName+" "+this.addThing();
+		return "Nome : "+this.name+"\nCognome : "+this.lastName+"\nCodice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
 		
 	}
 

@@ -44,47 +44,72 @@ public class TestAgency {
 		Driver testDriver = new Driver("driverName1", "driverLastName1",testTaxCode);
 		Manager testManager = new Manager("managerName1", "managerLastName1",testTaxCode);
 		assertTrue(addEmployees(testHostess, testDriver, testManager));
+		assertFalse(testAgency.add(testDriver));
+		assertFalse(testAgency.add(testHostess));
+		assertFalse(testAgency.add(testManager));
 		assertTrue(removeEmployees(testHostess, testDriver, testManager));
+		assertFalse(testAgency.remove(testDriver));
+		assertFalse(testAgency.remove(testHostess));
+		assertFalse(testAgency.remove(testManager));
 	}
 
 	@Test
 	public void testAddRemoveCustom() {
 		Custom testCustom = new Custom("customName1", "customLastName1", testTaxCode);
 		assertTrue(testAgency.add(testCustom));
+		assertFalse(testAgency.add(testCustom));
 		assertTrue(testAgency.getListOfCustom().contains(testCustom));
 		assertTrue(testAgency.remove(testCustom));
 		assertFalse(testAgency.getListOfCustom().contains(testCustom));
+		assertFalse(testAgency.remove(testCustom));
 	}
 
 	@Test
 	public void testAddRemoveVehicles() {
 		Vehicle testVehicles = new Vehicle("plate1", 50);
 		assertTrue(testAgency.add(testVehicles));
+		assertFalse(testAgency.add(testVehicles));
 		assertTrue(testAgency.getListOfVehicles().contains(testVehicles));
 		assertTrue(testAgency.remove(testVehicles));
 		assertFalse(testAgency.getListOfVehicles().contains(testVehicles));
+		assertFalse(testAgency.remove(testVehicles));
 	}
 	
 	@Test
 	public void testAddRemoveTravel() {
 		Travel testTravel = new Travel("nameProduct1", new Place("namePlace1"), new GregorianCalendar(1920,10,10), new Place("namePlace2"), new GregorianCalendar(1930, 12, 10), 100.);
 		assertTrue(testAgency.add(testTravel));
+		assertFalse((testAgency.add(testTravel)));
 		assertTrue(testAgency.getListOfTravel().contains(testTravel));
 		assertTrue(testAgency.remove(testTravel));
 		assertFalse(testAgency.getListOfTravel().contains(testTravel));
+		assertFalse(testAgency.remove(testTravel));
+	}
+	
+	@Test
+	public void testAddRemovePlace() {
+		Place testPlace = new Place("namePlace1");
+		assertTrue(testAgency.add(testPlace));
+		assertFalse(testAgency.add(testPlace));
+		assertTrue(testAgency.getListOfPlace().contains(testPlace));
+		assertTrue(testAgency.remove(testPlace));
+		assertFalse(testAgency.getListOfPlace().contains(testPlace));
+		assertFalse(testAgency.remove(testPlace));
 	}
 	
 	@Test
 	public void testCatchException () {
-		Agency testCatchAgency = new Agency("nameAgency1", null, null, null, null, null);
-		assertFalse(testCatchAgency.add(new Custom("nameCustom1", "lastNameCustom1", testTaxCode)));
-		assertFalse(testCatchAgency.add(new Manager("nameManager1", "lastNameManager1", testTaxCode)));
-		assertFalse(testCatchAgency.add(new Travel("nameProduct2", new Place("namePlace3"), new GregorianCalendar(2000,20,10), new Place("namePlace4"), new GregorianCalendar(2000,31,12), 200.)));
-		assertFalse(testCatchAgency.add(new Vehicle("plate1", 10)));
-		assertFalse(testCatchAgency.remove(new Hostess("nameHostess1", "lastNameHostess1", testTaxCode)));
-		assertFalse(testCatchAgency.remove(new Custom("nameCustom1", "lastNameCustom1", testTaxCode)));
-		assertFalse(testCatchAgency.remove(new Vehicle("plate1", 50)));
-		assertFalse(testCatchAgency.remove(new Product("nameProduct1", 200.)));
+		Agency testCatchAgency = new Agency(null, null, null, null, null, null);
+		assertFalse(testCatchAgency.add(new Custom(null, null, null)));
+		assertFalse(testCatchAgency.add(new Manager(null, null, null)));
+		assertFalse(testCatchAgency.add(new Travel(null, null, null, null, null, 200.)));
+		assertFalse(testCatchAgency.add(new Vehicle(null, 10)));
+		assertFalse(testCatchAgency.add(new Place(null)));
+		assertFalse(testCatchAgency.remove(new Hostess(null, null, null)));
+		assertFalse(testCatchAgency.remove(new Custom(null, null, null)));
+		assertFalse(testCatchAgency.remove(new Vehicle(null, 50)));
+		assertFalse(testCatchAgency.remove(new Product(null, 200.)));
+		assertFalse(testCatchAgency.remove(new Place(null)));
 	}
 
 	private boolean removeEmployees(Hostess testHostess, Driver testDriver, Manager testManager) {

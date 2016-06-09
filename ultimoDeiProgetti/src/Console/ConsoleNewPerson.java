@@ -19,6 +19,13 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 		getAction(resp, toAgency);
 	}
 
+	public static void getPersonInfo(Agency toAgency) {
+		Scanner typePersonIO = new Scanner(System.in);
+		getInfoMenu();
+		int resp = typePersonIO.nextInt();
+		getActionInfo(resp,toAgency);
+	}
+	
 	private static void getAction(int resp, Agency toAgency) {
 		switch (resp) {
 		case 1:
@@ -34,7 +41,22 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 			toAgency.add(getMenuForManager());
 			break;
 		default:
-			System.out.println("non sei nessuno");
+			System.out.println("Errore di I/O");
+			break;
+		}
+	}
+	
+
+	private static void getActionInfo(int resp, Agency toAgency) {
+		switch (resp) {
+		case 1:
+			System.out.println(toAgency.getListOfCustom());
+			break;
+		case 2:
+			System.out.println(toAgency.getListOfEmployees());
+			break;
+		default:
+			System.out.println("Errore di I/O");
 			break;
 		}
 	}
@@ -82,11 +104,16 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 	}
 
 	private static void getMenuOfTypePerson() {
-		System.out.println("Che tipo di Persona vuoi aggiungere?");
+		System.out.println("Che tipo di persona vuoi aggiungere?");
 		System.out.println("1 - Cliente");
 		System.out.println("2 - Hostess");
 		System.out.println("3 - Driver");
 		System.out.println("4 - Manager");
+	}
+	private static void getInfoMenu() {
+		System.out.println("Che lista di persone vuoi visualizzare?");
+		System.out.println("1 - Clienti");
+		System.out.println("2 - Dipendenti");
 	}
 
 }

@@ -21,33 +21,21 @@ public class Product implements GeneralProduct {
 		this.nameProduct = nameProduct;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralProduct#getNameProduct()
-	 */
 	@Override
 	public String getNameProduct() {
 		return nameProduct;
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralProduct#getAmount()
-	 */
 	@Override
 	public double getAmount() {
 		return amount;
 	}
 	
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralProduct#toString()
-	 */
 	@Override
 	public String toString() {
 		return this.getNameProduct()+" "+this.getAmount();
 	}
 
-	/* (non-Javadoc)
-	 * @see packAgency.GeneralProduct#getPriceWithCard(frameWorkAgency.GeneralCard)
-	 */
 	@Override
 	public double getPriceWithCard(GeneralCard card) {
 		return (this.getAmount()-this.getAmount()*card.getDiscount());

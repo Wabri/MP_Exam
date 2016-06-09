@@ -37,7 +37,7 @@ public class TestTravel {
 		Vehicle tmpVehicle = new Vehicle("plate1", 50);
 		tmpVehicle.setTravelling(true);
 		listOfVehicles.add(tmpVehicle);
-		listOfVehicles.add(new Vehicle("plate2",40));
+		listOfVehicles.add(new Vehicle("plate2",0));
 		listOfVehicles.add(new Vehicle("plate3",30));
 		initializeWithNoVehicles();
 	}
@@ -53,6 +53,7 @@ public class TestTravel {
 	public void testAddRemoveTravelInfo() {
 		assertTrue(testTravel.assignVehicle(listOfVehicles));
 		assertTrue(1 == testTravel.getNumOfVehicles());
+		assertTrue(assignTeamToVehicles());
 		assertTrue(assignTeamToVehicles());
 		assertTrue(testTravel.endTravel());
 		assertTrue(0 == testTravel.getNumOfVehicles());

@@ -41,8 +41,11 @@ public class TestBooking {
 	@Test
 	public void testSetSeat() {
 		assertTrue(testTravel.setRandomSeat(testCustomer));
+		assertFalse(testTravel.setSeat(testCustomer,testVehicle,0));
+		assertTrue(testTravel.setSeat(new Custom("nameCustom1","lastNameCustom1",testTaxCode), testVehicle, 2));
+		assertFalse(testTravel.setSeat(testCustomer, new Vehicle("plate2", 10), 1));
 		assertTrue(testTravel.removeSeat(testCustomer));
-		assertTrue(testTravel.setSeat(testCustomer,testVehicle,50));	
+		assertFalse(testTravel.removeSeat(new Custom("nameCustom3", "lastNameCustom3", testTaxCode)));
 	}
 	
 }
