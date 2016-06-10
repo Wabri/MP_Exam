@@ -1,8 +1,6 @@
 package Console;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import packAgency.Agency;
 
 public class MainConsole {
@@ -17,7 +15,7 @@ public class MainConsole {
 		displayLogin();
 		resp = agencyIO.nextInt();
 		while (resp != 9) {
-			displayLogin();
+			displaySubMenu();
 			resp = agencyIO.nextInt();
 			getSubAction(resp);
 		}
@@ -62,18 +60,19 @@ public class MainConsole {
 	}
 
 	private static void displayHierachy(int resp) {
-			switch (resp) {
-			case 1:
-				displayForEmplo();
-				break;
-			case 2:
-				displaySubMenu();
-				break;
-			default:
-				System.out.println("Errore di I/O"); 
-				break;
+		switch (resp) {
+		case 1:
+			displayForEmplo();
+			break;
+		case 2:
+			displaySubMenu();
+			break;
+		default:
+			System.out.println("Errore di I/O");
+			break;
 		}
-	}	
+	}
+
 	private static int getInt() {
 		Scanner keyboard = new Scanner(System.in);
 		return keyboard.nextInt();
@@ -119,24 +118,25 @@ public class MainConsole {
 	}
 
 	private static void displaySubMenu() {
-			System.out.println("|-----------------------------------------------------------|");
-			System.out.println("|		Agenzia Viaggi "+newAgency.getName()+"		|");
-			System.out.println("|	-------------------------------------------------	|");
-			System.out.println("| 	1 - Aggiungi una persona				|");
-			System.out.println("|	2 - Visualizza la lista delle persone   		|");
-			System.out.println("|	-------------------------------------------------  	|");
-			System.out.println("| 	3 - Aggiungi un veicolo					|");
-			System.out.println("|	4 - Visualizza la lista dei veicoli			|");
-			System.out.println("|	-------------------------------------------------	|");
-			System.out.println("| 	5 - Aggiungi una località 				|");
-			System.out.println("|	6 - Visualizza la lista delle località			|");
-			System.out.println("|	-------------------------------------------------	|");
-			System.out.println("|	7 - Aggiungi un viaggio					|");
-			System.out.println("|	8 - Visualizza la lista dei pacchetti di viaggio	|");
-			System.out.println("|	-------------------------------------------------	|");
-			System.out.println("|	9 - Esci dal programma	 				|");
-			System.out.println("|-----------------------------------------------------------|");
+		System.out.println("|-----------------------------------------------------------|");
+		System.out.println("|		Agenzia Viaggi " + newAgency.getName() + "		|");
+		System.out.println("|	-------------------------------------------------	|");
+		System.out.println("| 	1 - Aggiungi una persona				|");
+		System.out.println("|	2 - Visualizza la lista delle persone   		|");
+		System.out.println("|	-------------------------------------------------  	|");
+		System.out.println("| 	3 - Aggiungi un veicolo					|");
+		System.out.println("|	4 - Visualizza la lista dei veicoli			|");
+		System.out.println("|	-------------------------------------------------	|");
+		System.out.println("| 	5 - Aggiungi una località 				|");
+		System.out.println("|	6 - Visualizza la lista delle località			|");
+		System.out.println("|	-------------------------------------------------	|");
+		System.out.println("|	7 - Aggiungi un viaggio					|");
+		System.out.println("|	8 - Visualizza la lista dei pacchetti di viaggio	|");
+		System.out.println("|	-------------------------------------------------	|");
+		System.out.println("|	9 - Esci dal programma	 				|");
+		System.out.println("|-----------------------------------------------------------|");
 	}
+
 	private static void getSubAction(int resp) {
 		switch (resp) {
 		case 1:
@@ -149,16 +149,16 @@ public class MainConsole {
 			ConsoleNewVehicle.getVehicle(newAgency);
 			break;
 		case 4:
-//			ConsoleNewVehice.getVehicleInfo(newAgency);
+			// ConsoleNewVehice.getVehicleInfo(newAgency);
 			break;
 		case 5:
 			ConsoleNewPlace.getPlace(newAgency);
 			break;
 		case 6:
-//			ConsoleNewPlace.getPlaceInfo(newAgency);
+			// ConsoleNewPlace.getPlaceInfo(newAgency);
 			break;
 		case 7:
-//			ConsoleNewTravel.getTravelInfo(newAgency);
+			// ConsoleNewTravel.getTravelInfo(newAgency);
 			break;
 		case 8:
 			ConsoleNewTravel.getTravel(newAgency);

@@ -24,26 +24,26 @@ public class TestCardPrice {
 	
 	@Test
 	public void testCustomPriceWithCard() {
-		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1",.50, testTaxCode);
+		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1",.50, testTaxCode, null);
 		assertTrue(50. == testProduct.getPriceWithCard(testCustom.getCard()));
 	}
 
 	@Test
 	public void testCustomPriceWithoutCard() {
-		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1", testTaxCode);
+		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1", testTaxCode, null);
 		assertTrue(100. == testProduct.getPriceWithCard(testCustom.getCard()));
 	}
 	
 	@Test
 	public void testEmployeePriceWithCard() {
-		PersonAgency testDriver = new Driver("nameDriver1","lastNameDriver1",testTaxCode);
+		PersonAgency testDriver = new Driver("nameDriver1","lastNameDriver1",testTaxCode, null);
 		testDriver.getCard().setCardDiscount(.50);
 		assertTrue(50. == testProduct.getPriceWithCard(testDriver.getCard()));
 	}
 	
 	@Test
 	public void testEmployeePriceWithoutCard() {
-		PersonAgency testManager = new Manager("nameCustom1", "lastNameCustom1",testTaxCode);
+		PersonAgency testManager = new Manager("nameCustom1", "lastNameCustom1",testTaxCode, null);
 		assertTrue(100. == testProduct.getPriceWithCard(testManager.getCard()));
 	}
 }

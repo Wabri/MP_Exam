@@ -62,25 +62,25 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 	}
 
 	private static Manager getMenuForManager() {
-			Manager nuovoDipendente = new Manager(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+			Manager nuovoDipendente = new Manager(getKeyboardName(), getKeyboardLastName(), getKeyboardCF(), null);
 			System.out.println(nuovoDipendente.toString());
 			return nuovoDipendente;
 	}
 	
 	private static Hostess getMenuForHostess() {
-		Hostess nuovoDipendente = new Hostess(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+		Hostess nuovoDipendente = new Hostess(getKeyboardName(), getKeyboardLastName(), getKeyboardCF(), null);
 		System.out.println(nuovoDipendente.toString());
 		return nuovoDipendente;
 	}
 
 	private static Driver getMenuForDriver() {
-		Driver nuovoDipendente = new Driver(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+		Driver nuovoDipendente = new Driver(getKeyboardName(), getKeyboardLastName(), getKeyboardCF(), null);
 		System.out.println(nuovoDipendente.toString());
 		return nuovoDipendente;
 	}
 
 	private static Custom getMenuForCustom() {
-		Custom nuovoCliente = new Custom(getKeyboardName(), getKeyboardLastName(), getKeyboardCF());
+		Custom nuovoCliente = new Custom(getKeyboardName(), getKeyboardLastName(), getKeyboardCF(), null);
 		System.out.println(nuovoCliente.toString());
 		return nuovoCliente;
 	}

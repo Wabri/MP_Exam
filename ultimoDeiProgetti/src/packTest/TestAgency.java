@@ -40,9 +40,9 @@ public class TestAgency {
 
 	@Test
 	public void testAddRemoveEmployee() {
-		Hostess testHostess = new Hostess("hostessName1", "hostessLastName1",testTaxCode);
-		Driver testDriver = new Driver("driverName1", "driverLastName1",testTaxCode);
-		Manager testManager = new Manager("managerName1", "managerLastName1",testTaxCode);
+		Hostess testHostess = new Hostess("hostessName1", "hostessLastName1",testTaxCode, null);
+		Driver testDriver = new Driver("driverName1", "driverLastName1",testTaxCode, null);
+		Manager testManager = new Manager("managerName1", "managerLastName1",testTaxCode, null);
 		assertTrue(addEmployees(testHostess, testDriver, testManager));
 		assertFalse(testAgency.add(testDriver));
 		assertFalse(testAgency.add(testHostess));
@@ -55,7 +55,7 @@ public class TestAgency {
 
 	@Test
 	public void testAddRemoveCustom() {
-		Custom testCustom = new Custom("customName1", "customLastName1", testTaxCode);
+		Custom testCustom = new Custom("customName1", "customLastName1", testTaxCode, null);
 		assertTrue(testAgency.add(testCustom));
 		assertFalse(testAgency.add(testCustom));
 		assertTrue(testAgency.getListOfCustom().contains(testCustom));
@@ -100,13 +100,13 @@ public class TestAgency {
 	@Test
 	public void testCatchException () {
 		Agency testCatchAgency = new Agency(null, null, null, null, null, null);
-		assertFalse(testCatchAgency.add(new Custom(null, null, null)));
-		assertFalse(testCatchAgency.add(new Manager(null, null, null)));
+		assertFalse(testCatchAgency.add(new Custom(null, null, null,null)));
+		assertFalse(testCatchAgency.add(new Manager(null, null, null,null)));
 		assertFalse(testCatchAgency.add(new Travel(null, null, null, null, null, 200.)));
 		assertFalse(testCatchAgency.add(new Vehicle(null, 10)));
 		assertFalse(testCatchAgency.add(new Place(null)));
-		assertFalse(testCatchAgency.remove(new Hostess(null, null, null)));
-		assertFalse(testCatchAgency.remove(new Custom(null, null, null)));
+		assertFalse(testCatchAgency.remove(new Hostess(null, null, null,null)));
+		assertFalse(testCatchAgency.remove(new Custom(null, null, null,null)));
 		assertFalse(testCatchAgency.remove(new Vehicle(null, 50)));
 		assertFalse(testCatchAgency.remove(new Product(null, 200.)));
 		assertFalse(testCatchAgency.remove(new Place(null)));

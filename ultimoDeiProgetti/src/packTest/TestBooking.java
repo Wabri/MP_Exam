@@ -23,7 +23,7 @@ public class TestBooking {
 	
 	@Before
 	public void initialize() {
-		testCustomer = new Custom("nameCustomer1", "lastNameCustomer1", testTaxCode);
+		testCustomer = new Custom("nameCustomer1", "lastNameCustomer1", testTaxCode, null);
 		Collection<Vehicle> listOfVehicles = new LinkedList<Vehicle>();
 		testVehicle = new Vehicle("plate1",3);
 		listOfVehicles.add(testVehicle);
@@ -42,12 +42,12 @@ public class TestBooking {
 	public void testSetRemoveSeat() {
 		assertTrue(testTravel.setRandomSeat(testCustomer));
 		assertFalse(testTravel.setSeat(testCustomer,testVehicle,0));
-		assertTrue(testTravel.setSeat(new Custom("nameCustom1","lastNameCustom1",testTaxCode), testVehicle, 2));
+		assertTrue(testTravel.setSeat(new Custom("nameCustom1","lastNameCustom1",testTaxCode,null), testVehicle, 2));
 		assertTrue(testTravel.setRandomSeat(testCustomer));
 		assertFalse(testTravel.setSeat(testCustomer, new Vehicle("plate2", 10), 1));
 		assertFalse(testTravel.setRandomSeat(testCustomer));
 		assertTrue(testTravel.removeSeat(testCustomer));
-		assertFalse(testTravel.removeSeat(new Custom("nameCustom3", "lastNameCustom3", testTaxCode)));
+		assertFalse(testTravel.removeSeat(new Custom("nameCustom3", "lastNameCustom3", testTaxCode, null)));
 		testTravel = new Travel(null, null, null, null, null, 100, null);
 		assertFalse(testTravel.removeAllVehicles());
 	}

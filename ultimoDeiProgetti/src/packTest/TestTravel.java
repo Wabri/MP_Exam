@@ -64,9 +64,9 @@ public class TestTravel {
 		Travel testExceptionTravel = new Travel("ciao", null, null, null, null, 0, null);
 		assertFalse(testExceptionTravel.assignVehicle(null));
 		assertFalse(testExceptionTravel.endTravel());
-		assertFalse(testExceptionTravel.removeSeat(new Custom("nameCustom1", "lastNameCustom1", null)));
-		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null), null, 50));
-		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null), new Vehicle("plate1", 10), 50));
+		assertFalse(testExceptionTravel.removeSeat(new Custom("nameCustom1", "lastNameCustom1", null, null)));
+		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null, null), null, 50));
+		assertFalse(testExceptionTravel.setSeat(new Custom("nameCustom1", "lastNameCustom1", null, null), new Vehicle("plate1", 10), 50));
 	}
 	
 	private boolean assignTeamToVehicles() {
@@ -76,8 +76,8 @@ public class TestTravel {
 			Vehicle tmpVehicle;
 			while (iteratorTestVehicles.hasNext()) {
 				tmpVehicle = iteratorTestVehicles.next();
-				tmpVehicle.setDriverAssociated(new Driver("nameDriver1", "lastNameDriver1", testTaxCode));
-				tmpVehicle.setHostessAssociated(new Hostess("nameHostess1", "lastNameHostess1", testTaxCode));
+				tmpVehicle.setDriverAssociated(new Driver("nameDriver1", "lastNameDriver1", testTaxCode, null));
+				tmpVehicle.setHostessAssociated(new Hostess("nameHostess1", "lastNameHostess1", testTaxCode, null));
 			}
 			return true;
 		} catch (Exception e) {

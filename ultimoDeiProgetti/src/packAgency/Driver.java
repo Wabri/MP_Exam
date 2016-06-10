@@ -4,8 +4,8 @@ public class Driver extends Employee {
 
 	private boolean travelling;
 	
-	public Driver(String name, String lastName, char[] taxCode) {
-		super(name, lastName, taxCode);
+	public Driver(String name, String lastName, char[] taxCode, String userName) {
+		super(name, lastName, taxCode, userName);
 		travelling = false;
 	}
 
@@ -21,4 +21,8 @@ public class Driver extends Employee {
 		return "Driver";
 	}
 	
+	@Override
+	public void accept(VisitorPersonAgency personVisitor) {
+		personVisitor.visit(this);
+	}
 }

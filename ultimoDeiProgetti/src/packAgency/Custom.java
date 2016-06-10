@@ -9,14 +9,14 @@ public class Custom extends PersonAgency {
 
 	private Collection<Travel> listOfBooking;
 
-	public Custom(String name, String lastName, double discount, char[] taxCode) {
-		super(name, lastName, taxCode);
+	public Custom(String name, String lastName, double discount, char[] taxCode, String userName) {
+		super(name, lastName, taxCode, userName);
 		this.listOfBooking = new LinkedList<Travel>();
 		this.getCard().setCardDiscount(discount);
 	}
 
-	public Custom(String name, String lastName, char[] taxCode) {
-		super(name, lastName, taxCode);
+	public Custom(String name, String lastName, char[] taxCode, String userName) {
+		super(name, lastName, taxCode, userName);
 		this.listOfBooking = new LinkedList<Travel>();
 	}
 
@@ -50,6 +50,11 @@ public class Custom extends PersonAgency {
 			return false;
 		}
 
+	}
+
+	@Override
+	public void accept(VisitorPersonAgency personVisitor) {
+		personVisitor.visit(this);
 	}
 
 }
