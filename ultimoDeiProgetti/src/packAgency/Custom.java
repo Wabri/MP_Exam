@@ -52,9 +52,4 @@ public class Custom extends PersonAgency {
 
 	}
 
-	@Override
-	public void accept(VisitorPersonAgency personVisitor) {
-		personVisitor.visit(this);
-	}
-
 }

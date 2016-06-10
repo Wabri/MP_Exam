@@ -21,8 +21,6 @@ public abstract class PersonAgency implements GeneralPerson {
 		this.setCard(this.getTypeCard());
 	}
 	
-	public abstract void accept(VisitorPersonAgency personVisitor);
-	
 	protected abstract GeneralCard getTypeCard();
 	
 	private void setCard(GeneralCard card) {

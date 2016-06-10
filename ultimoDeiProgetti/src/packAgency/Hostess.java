@@ -20,9 +20,4 @@ public class Hostess extends Employee {
 		return "Hostess";
 	}
 	
-	@Override
-	public void accept(VisitorPersonAgency personVisitor) {
-		personVisitor.visit(this);
-	}
-
 }

@@ -10,10 +10,5 @@ public class Manager extends Employee {
 	protected String addThing() {
 		return "Manager";
 	}	
-	
-	@Override
-	public void accept(VisitorPersonAgency personVisitor) {
-		personVisitor.visit(this);
-	}
 
 }
