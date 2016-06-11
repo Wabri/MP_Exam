@@ -3,13 +3,14 @@ package Console;
 import java.util.GregorianCalendar;
 
 import packAgency.Agency;
+import packAgency.DataAgency;
 import packAgency.Place;
 import packAgency.Product;
 import packAgency.Travel;
 
 public class ConsoleNewTravel extends ConsoleGeneric {
 	
-	public static void getTravel(Agency toAgency) {
+	public static void getTravel(DataAgency toAgency) {
 		System.out.println("inserisci il nome del viaggio: ");
 		String name = getString();
 		System.out.println("da dove parte il viaggio?");

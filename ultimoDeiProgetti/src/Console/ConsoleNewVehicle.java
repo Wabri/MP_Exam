@@ -1,13 +1,12 @@
 package Console;
 
-import packAgency.Agency;
-import packAgency.Product;
+import packAgency.DataAgency;
 import packAgency.Vehicle;
 
 public class ConsoleNewVehicle extends ConsoleGeneric {
 
 
-	public static void getVehicle(Agency toAgency) {
+	public static void getVehicle(DataAgency toAgency) {
 		System.out.println("inserisci la targa del veicolo: ");
 		String plate = getString();
 		System.out.println("La targa del veicolo è: " + plate);

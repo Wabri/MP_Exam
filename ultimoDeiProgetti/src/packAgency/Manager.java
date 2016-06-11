@@ -10,5 +10,9 @@ public class Manager extends Employee {
 	protected String addThing() {
 		return "Manager";
 	}	
+	
+	public boolean isAdmin() {
+		return true;
+	}
 
 }

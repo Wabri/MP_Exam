@@ -11,5 +11,9 @@ public abstract class Employee extends PersonAgency{
 	protected GeneralCard getTypeCard() {
 		return new EmployeeCard(this, 0.);
 	}
+
+	public boolean isEmployee() {
+		return true;
+	}
 	
 }

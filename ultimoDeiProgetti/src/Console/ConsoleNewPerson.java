@@ -5,6 +5,7 @@ import java.util.Scanner;
 import frameworkAgency.GeneralPerson;
 import packAgency.Agency;
 import packAgency.Custom;
+import packAgency.DataAgency;
 import packAgency.Driver;
 import packAgency.Employee;
 import packAgency.Hostess;
@@ -12,21 +13,21 @@ import packAgency.Manager;
 
 public class ConsoleNewPerson extends ConsoleGeneric {
 
-	public static void getPerson(Agency toAgency) {
+	public static void getPerson(DataAgency toAgency) {
 		Scanner typePersonIO = new Scanner(System.in);
 		getMenuOfTypePerson();
 		int resp = typePersonIO.nextInt();
 		getAction(resp, toAgency);
 	}
 
-	public static void getPersonInfo(Agency toAgency) {
+	public static void getPersonInfo(DataAgency toAgency) {
 		Scanner typePersonIO = new Scanner(System.in);
 		getInfoMenu();
 		int resp = typePersonIO.nextInt();
 		getActionInfo(resp,toAgency);
 	}
 	
-	private static void getAction(int resp, Agency toAgency) {
+	private static void getAction(int resp, DataAgency toAgency) {
 		switch (resp) {
 		case 1:
 			toAgency.add(getMenuForCustom());
@@ -47,7 +48,7 @@ public class ConsoleNewPerson extends ConsoleGeneric {
 	}
 	
 
-	private static void getActionInfo(int resp, Agency toAgency) {
+	private static void getActionInfo(int resp, DataAgency toAgency) {
 		switch (resp) {
 		case 1:
 			System.out.println(toAgency.getListOfCustom());

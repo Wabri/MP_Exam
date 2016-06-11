@@ -9,15 +9,21 @@ public abstract class PersonAgency implements GeneralPerson {
 	private String lastName;
 	private GeneralCard card;
 	private char[] taxCode = new char[16];
-	private String userName;
-	private String password;
+	private Credentials userCredentials;
 
 	public PersonAgency(String name, String lastName, char[] taxCode, String userName) {
 		this.setLastName(lastName);
 		this.setName(name);
 		this.setTaxCode(taxCode);
-		this.setUserName(userName);
-		this.setPassword(userName+Math.random());
+		this.userCredentials = new Credentials(userName,this.getName()+Math.random(), this);
+		this.setCard(this.getTypeCard());
+	}
+	
+	public PersonAgency(String name, String lastName, char[] taxCode, String userName, String password) {
+		this.setLastName(lastName);
+		this.setName(name);
+		this.setTaxCode(taxCode);
+		this.userCredentials = new Credentials(userName,password, this);
 		this.setCard(this.getTypeCard());
 	}
 	
@@ -57,25 +63,25 @@ public abstract class PersonAgency implements GeneralPerson {
 	public char[] getTaxCode() {
 		return taxCode;
 	}
+	
+	private Credentials getUserCredentials() {
+		return userCredentials;
+	}
 
 	@Override
 	public String toString() {
 		return "Nome : "+this.getName()+"\nCognome : "+this.getLastName()+"\nCodice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
 		
 	}
-
-	private void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	private void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
+	
 	protected abstract String addThing();
 
+	public boolean isAdmin() {
+		return false;
+	}
+
+	public boolean isEmployee() {
+		return false;
+	}
+	
 }
