@@ -2,12 +2,12 @@ package Console;
 
 import java.util.Scanner;
 
+import frameworkAgency.Employee;
 import frameworkAgency.GeneralPerson;
-import packAgency.Agency;
+import packAgency.TravelAgency;
 import packAgency.Custom;
 import packAgency.DataAgency;
 import packAgency.Driver;
-import packAgency.Employee;
 import packAgency.Hostess;
 import packAgency.Manager;
 

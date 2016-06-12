@@ -1,5 +1,6 @@
 package packAgency;
 
+import frameworkAgency.Card;
 import frameworkAgency.GeneralPerson;
 
 public class CustomCard extends Card {

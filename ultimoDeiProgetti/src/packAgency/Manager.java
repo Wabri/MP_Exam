@@ -1,5 +1,7 @@
 package packAgency;
 
+import frameworkAgency.Employee;
+
 public class Manager extends Employee {
 
 	public Manager(String name, String lastName, char[] taxCode, String userName) {

@@ -1,10 +1,11 @@
 package packAgency;
 
 import java.util.Collection;
-
+import frameworkAgency.Employee;
+import frameworkAgency.GeneralDataAgency;
 import frameworkAgency.GeneralProduct;
 
-public class DataAgency {
+public class DataAgency implements GeneralDataAgency {
 	private Collection<Employee> listOfEmployees;
 	private Collection<Custom> listOfCustom;
 	private Collection<Travel> listOfTravel;
@@ -177,7 +178,9 @@ public class DataAgency {
 		} catch (Exception e) {
 			return false;
 		}
-	}public boolean remove(Place oldPlace) {
+	}
+
+	public boolean remove(Place oldPlace) {
 		try {
 			if (this.listOfPlace.contains(oldPlace)) {
 				this.listOfPlace.remove(oldPlace);

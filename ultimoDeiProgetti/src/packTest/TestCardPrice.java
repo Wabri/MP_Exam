@@ -6,11 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import frameworkAgency.GeneralProduct;
+import frameworkAgency.PersonAgency;
+import frameworkAgency.Product;
 import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Manager;
-import packAgency.PersonAgency;
-import packAgency.Product;
 
 public class TestCardPrice {
 

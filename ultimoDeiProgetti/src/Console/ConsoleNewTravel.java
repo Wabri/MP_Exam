@@ -2,10 +2,10 @@ package Console;
 
 import java.util.GregorianCalendar;
 
-import packAgency.Agency;
+import frameworkAgency.Product;
+import packAgency.TravelAgency;
 import packAgency.DataAgency;
 import packAgency.Place;
-import packAgency.Product;
 import packAgency.Travel;
 
 public class ConsoleNewTravel extends ConsoleGeneric {

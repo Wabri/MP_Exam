@@ -1,5 +1,7 @@
 package packAgency;
 
+import frameworkAgency.Employee;
+
 public class Driver extends Employee {
 
 	private boolean travelling;

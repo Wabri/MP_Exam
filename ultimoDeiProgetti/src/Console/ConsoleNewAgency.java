@@ -1,13 +1,13 @@
 package Console;
 
-import packAgency.Agency;
+import packAgency.TravelAgency;
 
 public class ConsoleNewAgency extends ConsoleGeneric {
 
-	public static Agency getAgency() {
+	public static TravelAgency getAgency() {
 		System.out.println("inserisci il nome dell'azienda");
 		String name = getString();
-		return new Agency(name);
+		return new TravelAgency(name);
 	}
 	
 }

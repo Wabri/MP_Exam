@@ -2,21 +2,21 @@ package packAgency;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import frameworkAgency.Employee;
 import frameworkAgency.GeneralAgency;
 
-
-public class Agency implements GeneralAgency {
+public class TravelAgency implements GeneralAgency {
 
 	private String name;
 	private DataAgency dataAgency;
 
-	public Agency(String name) {
+	public TravelAgency(String name) {
 		this.setName(name);
 		dataAgency = new DataAgency(new LinkedList<Employee>(), new LinkedList<Custom>(), new LinkedList<Vehicle>(),
 				new LinkedList<Travel>(), new LinkedList<Place>());
 	}
 
-	public Agency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom,
+	public TravelAgency(String name, Collection<Employee> listOfEmployees, Collection<Custom> listOfCustom,
 			Collection<Vehicle> listOfVehicles, Collection<Travel> listOfTravel, Collection<Place> listOfPlace) {
 		this.setName(name);
 		dataAgency = new DataAgency(listOfEmployees, listOfCustom, listOfVehicles, listOfTravel, listOfPlace);
@@ -41,5 +41,5 @@ public class Agency implements GeneralAgency {
 	public DataAgency getDataAgency() {
 		return dataAgency;
 	}
-	
+
 }

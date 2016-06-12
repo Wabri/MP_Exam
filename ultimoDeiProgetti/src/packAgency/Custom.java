@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import frameworkAgency.GeneralCard;
+import frameworkAgency.PersonAgency;
 
 public class Custom extends PersonAgency {
 

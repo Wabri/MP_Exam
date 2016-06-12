@@ -1,6 +1,4 @@
-package packAgency;
-
-import frameworkAgency.GeneralCard;
+package frameworkAgency;
 
 public abstract class Employee extends PersonAgency{
 	

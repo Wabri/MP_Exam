@@ -5,20 +5,23 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
+
+import frameworkAgency.Employee;
+import frameworkAgency.Product;
 import packAgency.*;
 
 public class TestAgency {
 
-	Agency testAgency;
+	TravelAgency testAgency;
 	DataAgency testDataAgency;
 	char[] testTaxCode = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
 
 	public void initializeNoSpecific() {
-		testAgency = new Agency("agencyName1");
+		testAgency = new TravelAgency("agencyName1");
 	}
 
 	public void initializeWithSpecific() {
-		testAgency = new Agency("nameAgency1", new LinkedList<Employee>(), new LinkedList<Custom>(),
+		testAgency = new TravelAgency("nameAgency1", new LinkedList<Employee>(), new LinkedList<Custom>(),
 				new LinkedList<Vehicle>(), new LinkedList<Travel>(), new LinkedList<Place>());
 	}
 
@@ -102,7 +105,7 @@ public class TestAgency {
 
 	@Test
 	public void testCatchException() {
-		Agency testCatchAgency = new Agency(null, null, null, null, null, null);
+		TravelAgency testCatchAgency = new TravelAgency(null, null, null, null, null, null);
 		DataAgency testCatchDataAgency = testCatchAgency.getDataAgency();
 		assertFalse(testCatchDataAgency.add(new Custom(null, null, null, null)));
 		assertFalse(testCatchDataAgency.add(new Manager(null, null, null, null)));

@@ -1,5 +1,7 @@
 package packAgency;
 
+import frameworkAgency.Employee;
+
 public class Hostess extends Employee {
 
 	private boolean travelling;

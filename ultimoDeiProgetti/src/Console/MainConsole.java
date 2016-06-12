@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import packAgency.Agency;
+import packAgency.TravelAgency;
 
 public class MainConsole {
 
-	static Agency newAgency;
+	static TravelAgency newAgency;
 
 	public static void main(String args[]) throws IOException {
 		getMainAction(ConsoleDisplayMenu.displayMainMenu());
@@ -38,7 +38,7 @@ public class MainConsole {
 			BufferedWriter out = new BufferedWriter(new FileWriter("C:/Users/Gabriele/Desktop/ciao.txt"));
 			out.write(newAgencyName);
 			out.close();
-			newAgency = new Agency(newAgencyName);
+			newAgency = new TravelAgency(newAgencyName);
 		} catch (IOException e) {
 			System.out.print("percorso file sbagliato");
 		}

@@ -1,7 +1,6 @@
-package packAgency;
+package frameworkAgency;
 
-import frameworkAgency.GeneralCard;
-import frameworkAgency.GeneralPerson;
+import packAgency.Credentials;
 
 public abstract class PersonAgency implements GeneralPerson {
 
@@ -70,8 +69,7 @@ public abstract class PersonAgency implements GeneralPerson {
 
 	@Override
 	public String toString() {
-		return "Nome : "+this.getName()+"\nCognome : "+this.getLastName()+"\nCodice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
-		
+		return addThing()+" Nome : "+this.getName()+" Cognome : "+this.getLastName()+" Codice Fiscale : "+String.valueOf(getTaxCode())+"\n-----\n";
 	}
 	
 	protected abstract String addThing();

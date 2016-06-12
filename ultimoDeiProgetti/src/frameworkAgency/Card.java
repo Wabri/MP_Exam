@@ -1,7 +1,4 @@
-package packAgency;
-
-import frameworkAgency.GeneralCard;
-import frameworkAgency.GeneralPerson;
+package frameworkAgency;
 
 public abstract class Card implements GeneralCard {
 
