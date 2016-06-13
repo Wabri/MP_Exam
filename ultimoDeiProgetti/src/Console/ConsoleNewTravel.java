@@ -2,7 +2,7 @@ package Console;
 
 import java.util.GregorianCalendar;
 
-import frameworkAgency.Product;
+import frameworkAgency.ProductAgency;
 import packAgency.TravelAgency;
 import packAgency.DataAgency;
 import packAgency.Place;

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import frameworkAgency.GeneralProduct;
 import frameworkAgency.PersonAgency;
-import frameworkAgency.Product;
+import frameworkAgency.ProductAgency;
 import packAgency.Custom;
 import packAgency.Driver;
 import packAgency.Manager;
@@ -19,7 +19,7 @@ public class TestCardPrice {
 	
 	@Before
 	public void initialize() {
-		testProduct = new Product("nameProduct1",100.);
+		testProduct = new ProductAgency("nameProduct1",100.);
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class TestCardPrice {
 	@Test
 	public void testEmployeePriceWithCard() {
 		PersonAgency testDriver = new Driver("nameDriver1","lastNameDriver1",testTaxCode, null);
-		testDriver.getCard().setCardDiscount(.50);
+		testDriver.getCard().setDiscount(.50);
 		assertTrue(50. == testProduct.getPriceWithCard(testDriver.getCard()));
 	}
 	

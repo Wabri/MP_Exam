@@ -13,7 +13,7 @@ public class Custom extends PersonAgency {
 	public Custom(String name, String lastName, double discount, char[] taxCode, String userName) {
 		super(name, lastName, taxCode, userName);
 		this.listOfBooking = new LinkedList<Travel>();
-		this.getCard().setCardDiscount(discount);
+		this.getCard().setDiscount(discount);
 	}
 
 	public Custom(String name, String lastName, char[] taxCode, String userName) {
@@ -30,7 +30,7 @@ public class Custom extends PersonAgency {
 		return "Custom";
 	}
 
-	protected GeneralCard getTypeCard() {
+	protected GeneralCard getNewCard() {
 		return new CustomCard(this, 0.);
 	}
 

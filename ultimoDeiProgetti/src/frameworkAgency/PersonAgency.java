@@ -1,32 +1,38 @@
 package frameworkAgency;
 
-import packAgency.Credentials;
-
 public abstract class PersonAgency implements GeneralPerson {
 
 	private String name;
 	private String lastName;
 	private GeneralCard card;
 	private char[] taxCode = new char[16];
-	private Credentials userCredentials;
+	private Credentials loginCredentials;
 
+	public PersonAgency(String name, String lastName, char[] taxCode) {
+		this.setLastName(lastName);
+		this.setName(name);
+		this.setTaxCode(taxCode);
+		this.loginCredentials = new Credentials(name,this.getName()+Math.random(), this);
+		this.setCard(this.getNewCard());
+	}
+	
 	public PersonAgency(String name, String lastName, char[] taxCode, String userName) {
 		this.setLastName(lastName);
 		this.setName(name);
 		this.setTaxCode(taxCode);
-		this.userCredentials = new Credentials(userName,this.getName()+Math.random(), this);
-		this.setCard(this.getTypeCard());
+		this.loginCredentials = new Credentials(userName,this.getName()+Math.random(), this);
+		this.setCard(this.getNewCard());
 	}
 	
 	public PersonAgency(String name, String lastName, char[] taxCode, String userName, String password) {
 		this.setLastName(lastName);
 		this.setName(name);
 		this.setTaxCode(taxCode);
-		this.userCredentials = new Credentials(userName,password, this);
-		this.setCard(this.getTypeCard());
+		this.loginCredentials = new Credentials(userName,password, this);
+		this.setCard(this.getNewCard());
 	}
 	
-	protected abstract GeneralCard getTypeCard();
+	protected abstract GeneralCard getNewCard();
 	
 	private void setCard(GeneralCard card) {
 		this.card = card;
@@ -63,8 +69,8 @@ public abstract class PersonAgency implements GeneralPerson {
 		return taxCode;
 	}
 	
-	private Credentials getUserCredentials() {
-		return userCredentials;
+	public Credentials getLoginCredentials() {
+		return loginCredentials;
 	}
 
 	@Override

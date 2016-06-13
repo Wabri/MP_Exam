@@ -7,9 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import frameworkAgency.Credentials;
 import frameworkAgency.GeneralAgency;
 import frameworkAgency.GeneralPerson;
-import packAgency.Credentials;
 import packAgency.TravelAgency;
 
 public class MainConsole {

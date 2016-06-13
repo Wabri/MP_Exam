@@ -1,8 +1,9 @@
 package Console;
 import java.io.*;
+
+import frameworkAgency.Credentials;
 import frameworkAgency.GeneralAgency;
 import frameworkAgency.GeneralPerson;
-import packAgency.Credentials;
 import packAgency.TravelAgency;
 
 public class ConsoleAction extends ConsoleGeneric{

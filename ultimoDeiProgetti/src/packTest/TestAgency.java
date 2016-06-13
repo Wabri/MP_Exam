@@ -5,10 +5,16 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
-
 import frameworkAgency.Employee;
-import frameworkAgency.Product;
-import packAgency.*;
+import packAgency.Custom;
+import packAgency.DataAgency;
+import packAgency.Driver;
+import packAgency.Hostess;
+import packAgency.Manager;
+import packAgency.Place;
+import packAgency.Travel;
+import packAgency.TravelAgency;
+import packAgency.Vehicle;
 
 public class TestAgency {
 
@@ -86,9 +92,9 @@ public class TestAgency {
 				new Place("namePlace2"), new GregorianCalendar(1930, 12, 10), 100.);
 		assertTrue(testDataAgency.add(testTravel));
 		assertFalse((testDataAgency.add(testTravel)));
-		assertTrue(testDataAgency.getListOfTravel().contains(testTravel));
+		assertTrue(testDataAgency.getListOfProduct().contains(testTravel));
 		assertTrue(testDataAgency.remove(testTravel));
-		assertFalse(testDataAgency.getListOfTravel().contains(testTravel));
+		assertFalse(testDataAgency.getListOfProduct().contains(testTravel));
 		assertFalse(testDataAgency.remove(testTravel));
 	}
 
@@ -115,7 +121,7 @@ public class TestAgency {
 		assertFalse(testCatchDataAgency.remove(new Hostess(null, null, null, null)));
 		assertFalse(testCatchDataAgency.remove(new Custom(null, null, null, null)));
 		assertFalse(testCatchDataAgency.remove(new Vehicle(null, 50)));
-		assertFalse(testCatchDataAgency.remove(new Product(null, 200.)));
+		assertFalse(testCatchDataAgency.remove(new Travel(null, null, null, null, null, 200.)));
 		assertFalse(testCatchDataAgency.remove(new Place(null)));
 	}
 

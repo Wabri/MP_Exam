@@ -6,6 +6,6 @@ public interface GeneralAgency {
 
 	String toString();
 	
-	GeneralDataAgency getDataAgency();
+	GeneralDataAgency<?> getDataAgency();
 
 }

@@ -2,7 +2,7 @@ package frameworkAgency;
 
 public interface GeneralCard {
 
-	void setCardDiscount(double discount);
+	void setDiscount(double discount);
 
 	GeneralPerson getAccountholder();
 

@@ -7,9 +7,9 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import frameworkAgency.Product;
+import frameworkAgency.ProductAgency;
 
-public class Travel extends Product {
+public class Travel extends ProductAgency {
 
 	private Place departure;
 	private Calendar dateDeparture;

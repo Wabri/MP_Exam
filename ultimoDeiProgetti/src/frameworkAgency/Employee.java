@@ -6,7 +6,7 @@ public abstract class Employee extends PersonAgency{
 		super(name,lastName, taxCode, userName);
 	}
 	
-	protected GeneralCard getTypeCard() {
+	protected GeneralCard getNewCard() {
 		return new EmployeeCard(this, 0.);
 	}
 

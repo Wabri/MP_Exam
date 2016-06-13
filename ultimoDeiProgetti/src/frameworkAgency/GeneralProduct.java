@@ -1,13 +1,38 @@
 package frameworkAgency;
 
-public interface GeneralProduct {
+public abstract class GeneralProduct {
 
-	String getNameProduct();
+	private String nameProduct;
 
-	double getAmount();
+	public GeneralProduct(String nameProduct) {
+		this.setNameProduct(nameProduct);
+	}
 
-	String toString();
+	private void setNameProduct(String nameProduct) {
+		this.nameProduct = nameProduct;
+	}
 
-	double getPriceWithCard(GeneralCard card);
+	public String getNameProduct() {
+		return nameProduct;
+	}
+
+	@Override
+	public String toString() {
+		return this.getNameProduct() + " " + this.getAmount();
+	}
+
+	public double getPriceWithCard(GeneralCard card) {
+		try {
+			return getAmount() - getAmount() * card.getDiscount();
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	public abstract double getAmount();
+
+	public abstract boolean add(GeneralProduct newProduct);
+
+	public abstract boolean remove(GeneralProduct oldProduct);
 
 }

@@ -5,6 +5,7 @@ import frameworkAgency.Employee;
 import frameworkAgency.GeneralDataAgency;
 
 public class DataAgency implements GeneralDataAgency<Travel> {
+	
 	private Collection<Employee> listOfEmployees;
 	private Collection<Custom> listOfCustom;
 	private Collection<Travel> listOfProduct;

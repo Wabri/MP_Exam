@@ -1,13 +1,13 @@
 package frameworkAgency;
 
-public abstract class Card implements GeneralCard {
+public abstract class CardAgency implements GeneralCard {
 
 	private GeneralPerson accountholder;
 	private double discount;
 
-	public Card (GeneralPerson accountholder, double discount) {
+	public CardAgency (GeneralPerson accountholder, double discount) {
 		this.setAccountholder(accountholder);
-		this.setCardDiscount(discount);
+		this.setDiscount(discount);
 	}
 	
 	private void setAccountholder(GeneralPerson accountholder) {
@@ -15,7 +15,7 @@ public abstract class Card implements GeneralCard {
 	}
 
 	@Override
-	public void setCardDiscount(double discount) {
+	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
 
