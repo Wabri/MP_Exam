@@ -5,8 +5,13 @@ public abstract class CardAgency implements GeneralCard {
 	private GeneralPerson accountholder;
 	private double discount;
 
-	public CardAgency (GeneralPerson accountholder, double discount) {
-		this.setAccountholder(accountholder);
+	public CardAgency (GeneralPerson accountHolder) {
+		this.setAccountholder(accountHolder);
+		this.setDiscount(0);
+	}
+	
+	public CardAgency (GeneralPerson accountHolder, double discount) {
+		this.setAccountholder(accountHolder);
 		this.setDiscount(discount);
 	}
 	
