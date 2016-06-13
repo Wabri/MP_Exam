@@ -33,7 +33,7 @@ public class TravelAgency implements GeneralAgency {
 
 	@Override
 	public String toString() {
-		return this.name + " number of employees: " + this.dataAgency.getListOfEmployees().size()
+		return "Agency "+this.name + " number of employees: " + this.dataAgency.getListOfEmployees().size()
 				+ " number of client: " + this.dataAgency.getListOfCustom().size();
 
 	}

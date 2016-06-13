@@ -3,12 +3,11 @@ package packAgency;
 import java.util.Collection;
 import frameworkAgency.Employee;
 import frameworkAgency.GeneralDataAgency;
-import frameworkAgency.GeneralProduct;
 
-public class DataAgency implements GeneralDataAgency {
+public class DataAgency implements GeneralDataAgency<Travel> {
 	private Collection<Employee> listOfEmployees;
 	private Collection<Custom> listOfCustom;
-	private Collection<Travel> listOfTravel;
+	private Collection<Travel> listOfProduct;
 	private Collection<Vehicle> listOfVehicles;
 	private Collection<Place> listOfPlace;
 
@@ -25,12 +24,13 @@ public class DataAgency implements GeneralDataAgency {
 		return listOfEmployees;
 	}
 
+	@Override
+	public Collection<Travel> getListOfProduct() {
+		return listOfProduct;
+	}
+	
 	public Collection<Custom> getListOfCustom() {
 		return listOfCustom;
-	}
-
-	public Collection<Travel> getListOfTravel() {
-		return listOfTravel;
 	}
 
 	public Collection<Vehicle> getListOfVehicles() {
@@ -50,7 +50,7 @@ public class DataAgency implements GeneralDataAgency {
 	}
 
 	private void setListOfTravel(Collection<Travel> listOfTravel) {
-		this.listOfTravel = listOfTravel;
+		this.listOfProduct = listOfTravel;
 	}
 
 	private void setListOfVehicles(Collection<Vehicle> listOfVehicles) {
@@ -61,6 +61,22 @@ public class DataAgency implements GeneralDataAgency {
 		this.listOfPlace = listOfPlace;
 	}
 
+	@Override
+	public boolean add(Travel newTravel) {
+		try {
+			if (!listOfProduct.contains(newTravel)) {
+				this.listOfProduct.add(newTravel);
+				this.listOfPlace.add(newTravel.getArrival());
+				this.listOfPlace.add(newTravel.getDeparture());
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public boolean add(Employee newEmployee) {
 		try {
 			if (!listOfEmployees.contains(newEmployee)) {
@@ -87,20 +103,6 @@ public class DataAgency implements GeneralDataAgency {
 		}
 	}
 
-	public boolean add(Travel newTravel) {
-		try {
-			if (!listOfTravel.contains(newTravel)) {
-				this.listOfTravel.add(newTravel);
-				this.listOfPlace.add(newTravel.getArrival());
-				this.listOfPlace.add(newTravel.getDeparture());
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			return false;
-		}
-	}
 
 	public boolean add(Place newPlace) {
 		try {
@@ -167,10 +169,11 @@ public class DataAgency implements GeneralDataAgency {
 		}
 	}
 
-	public boolean remove(GeneralProduct oldTravel) {
+	@Override
+	public boolean remove(Travel oldTravel) {
 		try {
-			if (this.listOfTravel.contains(oldTravel)) {
-				this.listOfTravel.remove(oldTravel);
+			if (this.listOfProduct.contains(oldTravel)) {
+				this.listOfProduct.remove(oldTravel);
 				return true;
 			} else {
 				return false;
@@ -192,4 +195,5 @@ public class DataAgency implements GeneralDataAgency {
 			return false;
 		}
 	}
+
 }
