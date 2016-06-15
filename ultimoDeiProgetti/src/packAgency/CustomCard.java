@@ -5,8 +5,11 @@ import frameworkAgency.GeneralPerson;
 
 public class CustomCard extends CardAgency {
 	
-	public CustomCard(GeneralPerson accountholder, Double discount) {
-		super(accountholder, discount);
+	public CustomCard(GeneralPerson accountHolder, Double discount) {
+		super(accountHolder, discount);
 	}
 
+	public CustomCard(GeneralPerson accountHolder) {
+		super(accountHolder);
+	}
 }

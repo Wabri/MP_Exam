@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import frameworkAgency.GeneralProduct;
 import frameworkAgency.PersonAgency;
 import frameworkAgency.ProductAgency;
@@ -24,7 +23,7 @@ public class TestCardPrice {
 	
 	@Test
 	public void testCustomPriceWithCard() {
-		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1",.50, testTaxCode, null);
+		PersonAgency testCustom = new Custom("nameCustom1", "lastNameCustom1", .50, testTaxCode, null);
 		assertTrue(50. == testProduct.getPriceWithCard(testCustom.getCard()));
 	}
 

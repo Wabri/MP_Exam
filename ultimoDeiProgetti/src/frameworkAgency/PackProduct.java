@@ -33,6 +33,10 @@ public class PackProduct extends GeneralProduct {
 		}
 	}
 
+	public Collection<GeneralProduct> getListOfProduct() {
+		return listOfProduct;
+	}
+
 	public boolean add(GeneralProduct newProduct) {
 		try {
 			this.listOfProduct.add(newProduct);

@@ -6,8 +6,19 @@ public class Hostess extends Employee {
 
 	private boolean travelling;
 
+	public Hostess(String name, String lastName, char[] taxCode) {
+		super(name,lastName,taxCode);
+		travelling = false;
+	}
+	
 	public Hostess(String name, String lastName, char[] taxCode, String userName) {
-		super(name, lastName,taxCode, userName);
+		super(name, lastName, taxCode, userName);
+		travelling = false;
+	}
+
+	public Hostess(String name, String lastName, char[] taxCode, String userName, String password) {
+		super(name,lastName,taxCode,userName, password);
+		travelling = false;
 	}
 
 	public boolean isTravelling() {
